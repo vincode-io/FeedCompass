@@ -40,6 +40,7 @@ class OPMLViewController: NSViewController {
 		}
 		
 		opmls.append(opmlDocument)
+		opmls.sort(by: { $0.title > $1.title })
 		outlineView.reloadData()
 	}
 
