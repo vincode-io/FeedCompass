@@ -41,7 +41,7 @@ class OPMLViewController: NSViewController {
 		}
 		
 		opmls.append(opmlDocument)
-		opmls.sort(by: { $0.title > $1.title })
+		opmls.sort(by: { return $0.title.caseInsensitiveCompare($1.title) == .orderedAscending })
 		outlineView.reloadData()
 	}
 
