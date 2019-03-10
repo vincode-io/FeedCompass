@@ -1,0 +1,9 @@
+[submodule "submodules/RSParser"]
+	path = submodules/RSParser
+	url = https://github.com/vincode-io/RSParser.git
+[submodule "submodules/RSCore"]
+	path = submodules/RSCore
+	url = https://github.com/vincode-io/RSCore.git
+[submodule "submodules/RSWeb"]
+	path = submodules/RSWeb
+	url = https://github.com/vincode-io/RSWeb.git
