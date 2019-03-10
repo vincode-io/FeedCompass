@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		512EA9352235A930008C9D51 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512EA9342235A930008C9D51 /* MainWindowController.swift */; };
 		516037802235581600172C8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5160377F2235581600172C8D /* AppDelegate.swift */; };
 		516037842235581700172C8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 516037832235581700172C8D /* Assets.xcassets */; };
 		516037872235581700172C8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 516037852235581700172C8D /* Main.storyboard */; };
@@ -121,6 +122,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		512EA9342235A930008C9D51 /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		5160377C2235581600172C8D /* Feed Compass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Feed Compass.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5160377F2235581600172C8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		516037832235581700172C8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -174,7 +176,9 @@
 		5160377E2235581600172C8D /* FeedCompass */ = {
 			isa = PBXGroup;
 			children = (
+				516037852235581700172C8D /* Main.storyboard */,
 				5160377F2235581600172C8D /* AppDelegate.swift */,
+				512EA9342235A930008C9D51 /* MainWindowController.swift */,
 				516037C122355AFB00172C8D /* OPMLDownloader.swift */,
 				516037C022355AFB00172C8D /* OPMLLocation.swift */,
 				516037BD22355AFB00172C8D /* OPMLViewController.swift */,
@@ -182,7 +186,6 @@
 				516037BE22355AFB00172C8D /* RSSViewController.swift */,
 				516037BF22355AFB00172C8D /* SplitViewController.swift */,
 				516037832235581700172C8D /* Assets.xcassets */,
-				516037852235581700172C8D /* Main.storyboard */,
 				516037882235581700172C8D /* Info.plist */,
 				516037892235581700172C8D /* FeedCompass.entitlements */,
 			);
@@ -376,6 +379,7 @@
 				516037C622355AFB00172C8D /* OPMLLocation.swift in Sources */,
 				516037C822355AFB00172C8D /* RSSTableCellView.swift in Sources */,
 				516037802235581600172C8D /* AppDelegate.swift in Sources */,
+				512EA9352235A930008C9D51 /* MainWindowController.swift in Sources */,
 				516037C522355AFB00172C8D /* SplitViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

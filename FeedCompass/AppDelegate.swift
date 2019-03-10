@@ -1,6 +1,6 @@
 //Copyright © 2019 Vincode, Inc. All rights reserved.
 
-import Cocoa
+import AppKit
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {

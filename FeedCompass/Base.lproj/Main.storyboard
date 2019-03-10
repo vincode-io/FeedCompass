@@ -110,7 +110,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="FeedCompass" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Feed_Compass" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -119,7 +119,7 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
+                <windowController id="B8D-0N-5wS" customClass="MainWindowController" customModule="Feed_Compass" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" tabbingMode="disallowed" titleVisibility="hidden" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -127,7 +127,7 @@
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <toolbar key="toolbar" implicitIdentifier="1CF56AB6-FEB8-46CA-96BF-68086A72354C" autosavesConfiguration="NO" showsBaselineSeparator="NO" displayMode="iconOnly" sizeMode="regular" id="pdq-l1-EOg">
                             <allowedToolbarItems>
-                                <toolbarItem implicitItemIdentifier="6AC2EABA-5B37-4992-813A-4F632554F21B" label="Subscribe" paletteLabel="Subscribe" sizingBehavior="auto" id="kJa-eu-DJ7">
+                                <toolbarItem implicitItemIdentifier="6AC2EABA-5B37-4992-813A-4F632554F21B" label="Subscribe" paletteLabel="Subscribe" sizingBehavior="auto" id="kJa-eu-DJ7" customClass="RSToolbarItem" customModule="RSCore">
                                     <nil key="toolTip"/>
                                     <button key="view" verticalHuggingPriority="750" id="IqP-0X-hT0">
                                         <rect key="frame" x="0.0" y="14" width="127" height="25"/>
@@ -136,6 +136,9 @@
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="subscribe:" target="B8D-0N-5wS" id="dWw-eq-vLX"/>
+                                        </connections>
                                     </button>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="aB4-0K-00D"/>
@@ -160,7 +163,7 @@
         <!--Split View Controller-->
         <scene sceneID="1wq-2s-mwg">
             <objects>
-                <splitViewController id="lE9-Bz-r4W" customClass="SplitViewController" customModule="FeedCompass" customModuleProvider="target" sceneMemberID="viewController">
+                <splitViewController id="lE9-Bz-r4W" customClass="SplitViewController" customModule="Feed_Compass" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem id="2nP-RI-tCD"/>
                         <splitViewItem id="GeX-Mh-gay"/>
@@ -185,7 +188,7 @@
         <!--View Controller-->
         <scene sceneID="ZkW-AA-AMe">
             <objects>
-                <viewController id="yB4-BD-9RZ" customClass="OPMLViewController" customModule="FeedCompass" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yB4-BD-9RZ" customClass="OPMLViewController" customModule="Feed_Compass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Wxv-dK-FF6">
                         <rect key="frame" x="0.0" y="0.0" width="250" height="600"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -271,7 +274,7 @@
         <!--View Controller-->
         <scene sceneID="gKi-7L-ZTg">
             <objects>
-                <viewController id="FgE-DB-Heh" customClass="RSSViewController" customModule="FeedCompass" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FgE-DB-Heh" customClass="RSSViewController" customModule="Feed_Compass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="W8y-Sa-Hj9">
                         <rect key="frame" x="0.0" y="0.0" width="350" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -303,7 +306,7 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
                                                     <prototypeCellViews>
-                                                        <customView identifier="RSSTableViewCell" id="q59-9l-O3Y" customClass="RSSTableCellView" customModule="FeedCompass" customModuleProvider="target">
+                                                        <customView identifier="RSSTableViewCell" id="q59-9l-O3Y" customClass="RSSTableCellView" customModule="Feed_Compass" customModuleProvider="target">
                                                             <rect key="frame" x="1" y="1" width="350" height="67"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <subviews>
@@ -356,7 +359,7 @@
                                         </tableView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.20000000000000001" horizontal="YES" id="7I4-nw-Rhi">
+                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="7I4-nw-Rhi">
                                     <rect key="frame" x="1" y="283" width="348" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>

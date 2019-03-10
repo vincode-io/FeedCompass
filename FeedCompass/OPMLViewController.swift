@@ -1,6 +1,6 @@
 //Copyright © 2019 Vincode, Inc. All rights reserved.
 
-import Cocoa
+import AppKit
 import RSParser
 
 class OPMLViewController: NSViewController {
@@ -19,7 +19,12 @@ class OPMLViewController: NSViewController {
 	
 	private let opmlDownloader = OPMLDownloader()
 	private var opmls = [RSOPMLDocument]()
-	
+
+	var currentlySelectedOPMLItem: RSOPMLItem? {
+		let selectedRows = outlineView.selectedRowIndexes
+		return selectedRows.map({ outlineView.item(atRow: $0) as! RSOPMLItem }).first
+	}
+
 	override func viewDidLoad() {
 		
 		super.viewDidLoad()
@@ -31,7 +36,7 @@ class OPMLViewController: NSViewController {
 
 		opmlDownloader.load(opmlLocations)
 	}
-
+	
 	// MARK: - Notifications
 	
 	@objc func opmlDidDownload(_ note: Notification) {
@@ -111,18 +116,12 @@ extension OPMLViewController: NSOutlineViewDelegate {
 	
 	func outlineViewSelectionDidChange(_ notification: Notification) {
 		
-		guard outlineView == notification.object as? NSOutlineView else { return }
-		let selectedRows = outlineView.selectedRowIndexes
-		
-		guard let opmlItem = selectedRows.map({ outlineView.item(atRow: $0) as! RSOPMLItem }).first else {
+		guard let opmlItem = currentlySelectedOPMLItem, let feedSpecifier = opmlItem.feedSpecifier else {
 			return
 		}
 		
-		guard let feedSpecifier = opmlItem.feedSpecifier else { return }
-		
 		let splitViewController = parent as! SplitViewController
 		splitViewController.rssViewController.feedURL = feedSpecifier.feedURL
-		
 	}
 	
 }
