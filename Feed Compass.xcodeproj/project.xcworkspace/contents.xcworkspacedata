@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:FeedCompass.xcodeproj">
+      location = "self:/Users/maurice/Work/FeedCompass/Feed Compass.xcodeproj">
    </FileRef>
 </Workspace>

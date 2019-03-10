@@ -121,7 +121,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		5160377C2235581600172C8D /* FeedCompass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FeedCompass.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5160377C2235581600172C8D /* Feed Compass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Feed Compass.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5160377F2235581600172C8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		516037832235581700172C8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		516037862235581700172C8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -166,7 +166,7 @@
 		5160377D2235581600172C8D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5160377C2235581600172C8D /* FeedCompass.app */,
+				5160377C2235581600172C8D /* Feed Compass.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -221,9 +221,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5160377B2235581600172C8D /* FeedCompass */ = {
+		5160377B2235581600172C8D /* Feed Compass */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5160378C2235581700172C8D /* Build configuration list for PBXNativeTarget "FeedCompass" */;
+			buildConfigurationList = 5160378C2235581700172C8D /* Build configuration list for PBXNativeTarget "Feed Compass" */;
 			buildPhases = (
 				516037782235581600172C8D /* Sources */,
 				516037792235581600172C8D /* Frameworks */,
@@ -237,9 +237,9 @@
 				516037B822355AA700172C8D /* PBXTargetDependency */,
 				516037BC22355AAC00172C8D /* PBXTargetDependency */,
 			);
-			name = FeedCompass;
+			name = "Feed Compass";
 			productName = FeedCompass;
-			productReference = 5160377C2235581600172C8D /* FeedCompass.app */;
+			productReference = 5160377C2235581600172C8D /* Feed Compass.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -262,7 +262,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 516037772235581600172C8D /* Build configuration list for PBXProject "FeedCompass" */;
+			buildConfigurationList = 516037772235581600172C8D /* Build configuration list for PBXProject "Feed Compass" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -289,7 +289,7 @@
 			);
 			projectRoot = "";
 			targets = (
-				5160377B2235581600172C8D /* FeedCompass */,
+				5160377B2235581600172C8D /* Feed Compass */,
 			);
 		};
 /* End PBXProject section */
@@ -570,7 +570,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		516037772235581600172C8D /* Build configuration list for PBXProject "FeedCompass" */ = {
+		516037772235581600172C8D /* Build configuration list for PBXProject "Feed Compass" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5160378A2235581700172C8D /* Debug */,
@@ -579,7 +579,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5160378C2235581700172C8D /* Build configuration list for PBXNativeTarget "FeedCompass" */ = {
+		5160378C2235581700172C8D /* Build configuration list for PBXNativeTarget "Feed Compass" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5160378D2235581700172C8D /* Debug */,
