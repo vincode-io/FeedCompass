@@ -50,8 +50,8 @@ class RSSViewController: NSViewController {
 				return false
 			})
 		
-			tableView.reloadData()
 			tableView.scrollTo(row: 0)
+			tableView.reloadData()
 		}
 	}
 	
