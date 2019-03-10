@@ -309,7 +309,7 @@
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="MgL-vF-TBg">
                                                                     <rect key="frame" x="18" y="25" width="314" height="17"/>
-                                                                    <textFieldCell key="cell" selectable="YES" title="Multiline Label" id="Z8v-SL-jfR">
+                                                                    <textFieldCell key="cell" title="Multiline Label" id="Z8v-SL-jfR">
                                                                         <font key="font" metaFont="systemHeavy" size="13"/>
                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -317,7 +317,7 @@
                                                                 </textField>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="g3N-cX-VEQ">
                                                                     <rect key="frame" x="18" y="4" width="314" height="17"/>
-                                                                    <textFieldCell key="cell" selectable="YES" title="Multiline Label" id="9AJ-ah-f18">
+                                                                    <textFieldCell key="cell" title="Multiline Label" id="9AJ-ah-f18">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
