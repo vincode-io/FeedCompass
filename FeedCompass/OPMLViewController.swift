@@ -13,7 +13,8 @@ class OPMLViewController: NSViewController {
 		OPMLLocation(title: "iOS Design Blogs", url: "https://iosdevdirectory.com/opml/en/design.opml"),
 		OPMLLocation(title: "iOS Marketing Blogs", url: "https://iosdevdirectory.com/opml/en/marketing.opml"),
 		OPMLLocation(title: "iOS Development Company Blogs", url: "https://iosdevdirectory.com/opml/en/companies.opml"),
-		OPMLLocation(title: "iOS Development Newsletters", url: "https://iosdevdirectory.com/opml/en/newsletters.opml")
+		OPMLLocation(title: "iOS Development Newsletters", url: "https://iosdevdirectory.com/opml/en/newsletters.opml"),
+		OPMLLocation(title: "Chris Aldrich - Following", url: "https://www.boffosocko.com/wp-links-opml.php")
 	]
 	
 	private let opmlDownloader = OPMLDownloader()
