@@ -1,6 +1,6 @@
-![Feed Compass Icon](images/Icon-256.png)
+![Feed Compass Icon](images/Feed-Compass-Banner.png)
 
-# Feed Compass
+# 
 
 Feed Compass is a macOS application that makes it easier to find and subscribe
 to RSS Feeds in your favorite RSS Reader.  It is a companion app to an RSS
