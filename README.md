@@ -20,7 +20,7 @@ contribute you can file bug reports and feature requests on the
 [Issues](https://github.com/vincode-io/FeedCompass/issues) page.
 
 If you have an OPML file that you think should be included, please file
-an [Issues](https://github.com/vincode-io/FeedCompass/issues) for it.
+an [Issue](https://github.com/vincode-io/FeedCompass/issues) for it.
 
 ## Building
 
