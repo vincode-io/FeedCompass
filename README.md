@@ -22,6 +22,19 @@ contribute you can file bug reports and feature requests on the
 If you have an OPML file that you think should be included, please file
 an [Issues](https://github.com/vincode-io/FeedCompass/issues) for it.
 
+## Building
+
+From the command line run the following commands:
+``
+git clone https://github.com/vincode-io/FeedCompass.git
+cd FeedCompass
+git submodule init
+git submodule update
+``
+
+You can now open the Feed Compass.xcodeproj project.  You will have to fix
+the project signing before building and running.
+
 ## Licence
 
 MIT Licensed
