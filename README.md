@@ -38,3 +38,13 @@ the project signing before building and running.
 ## Licence
 
 MIT Licensed
+
+## Credits
+
+Many thanks to [Brent Simmons](http://inessential.com) for the coming up with
+the idea for this program.  We would also like to thank him for open sourcing
+the many libraries of his we use.
+
+We would also like to thank the creators of the OPML files utilized by Feed
+Compass.  This program would be nothing without their work curating the OMPL
+blog listings.
