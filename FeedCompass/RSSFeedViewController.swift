@@ -3,6 +3,7 @@
 import AppKit
 import RSCore
 import RSParser
+import RSWeb
 
 class RSSFeedViewController: NSViewController {
 
@@ -36,8 +37,10 @@ class RSSFeedViewController: NSViewController {
 		tableView.reloadData()
 	
 	}
-	
+
 }
+
+// MARK: NSTableViewDataSource
 
 extension RSSFeedViewController: NSTableViewDataSource {
 	
@@ -46,6 +49,8 @@ extension RSSFeedViewController: NSTableViewDataSource {
 	}
 	
 }
+
+// MARK: NSTableViewDelegate
 
 extension RSSFeedViewController: NSTableViewDelegate {
 	
@@ -107,6 +112,67 @@ extension RSSFeedViewController: NSTableViewDelegate {
 			return timeFormatter.string(from: date)
 		}
 		return dateFormatter.string(from: date)
+	}
+
+}
+
+// MARK: NSMenuDelegate
+
+extension RSSFeedViewController: NSMenuDelegate {
+	
+	public func menuNeedsUpdate(_ menu: NSMenu) {
+		menu.removeAllItems()
+		guard let contextualMenu = contextualMenuForClickedRow() else {
+			return
+		}
+		menu.takeItems(from: contextualMenu)
+	}
+	
+}
+
+// MARK: Context Menu Functions
+	
+extension RSSFeedViewController {
+
+	@objc func openURLFromContextualMenu(_ sender: Any?) {
+		guard let menuItem = sender as? NSMenuItem,
+			let urlString = menuItem.representedObject as? String,
+			let url = URL(string: urlString)
+			else {
+				return
+		}
+		MacWebBrowser.openURL(url, inBackground: false)
+	}
+	
+}
+
+// MARK: Private Functions
+
+private extension RSSFeedViewController {
+
+	func contextualMenuForClickedRow() -> NSMenu? {
+		
+		let row = tableView.clickedRow
+		guard row != -1 else {
+			return nil
+		}
+		
+		if let externalURL = parsedItems[row].externalURL {
+			let menu = NSMenu(title: "")
+			let item = menuItem(NSLocalizedString("Open Article in Browser", comment: "Command"), #selector(openURLFromContextualMenu(_:)), externalURL)
+			menu.addItem(item)
+			return menu
+		}
+		
+		return nil
+		
+	}
+	
+	func menuItem(_ title: String, _ action: Selector, _ representedObject: Any) -> NSMenuItem {
+		let item = NSMenuItem(title: title, action: action, keyEquivalent: "")
+		item.representedObject = representedObject
+		item.target = self
+		return item
 	}
 	
 }

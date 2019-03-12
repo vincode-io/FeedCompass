@@ -376,6 +376,9 @@
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
+                                            <connections>
+                                                <outlet property="menu" destination="KaF-TY-xMm" id="fZ8-ep-Xsm"/>
+                                            </connections>
                                         </tableView>
                                     </subviews>
                                 </clipView>
@@ -401,8 +404,24 @@
                     </connections>
                 </viewController>
                 <customObject id="heC-4d-bwt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <menu id="KaF-TY-xMm">
+                    <items>
+                        <menuItem title="Item 1" id="yLo-L5-ii4">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="Item 2" id="gZa-V2-Jx7">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                        <menuItem title="Item 3" id="xin-Jh-lar">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                        </menuItem>
+                    </items>
+                    <connections>
+                        <outlet property="delegate" destination="FgE-DB-Heh" id="mUN-7w-cjm"/>
+                    </connections>
+                </menu>
             </objects>
-            <point key="canvasLocation" x="695" y="924"/>
+            <point key="canvasLocation" x="828" y="930"/>
         </scene>
         <!--Message View Controller-->
         <scene sceneID="8c5-LT-3V3">
