@@ -200,7 +200,7 @@
                                     <rect key="frame" x="1" y="1" width="248" height="598"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="16" outlineTableColumn="huS-4K-5Gs" id="mIq-NB-Snb">
+                                        <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="16" outlineTableColumn="huS-4K-5Gs" id="mIq-NB-Snb" customClass="OPMLOutlineView" customModule="Feed_Compass" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="248" height="598"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
