@@ -167,7 +167,7 @@
                 <splitViewController id="lE9-Bz-r4W" customClass="SplitViewController" customModule="Feed_Compass" customModuleProvider="target" sceneMemberID="viewController">
                     <splitViewItems>
                         <splitViewItem id="2nP-RI-tCD"/>
-                        <splitViewItem id="GeX-Mh-gay"/>
+                        <splitViewItem id="jLD-fe-1Qx"/>
                     </splitViewItems>
                     <splitView key="splitView" dividerStyle="thin" vertical="YES" id="MAv-Ea-XJg">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="600"/>
@@ -179,7 +179,7 @@
                     <connections>
                         <outlet property="splitView" destination="MAv-Ea-XJg" id="VTY-GW-zcS"/>
                         <segue destination="yB4-BD-9RZ" kind="relationship" relationship="splitItems" id="hSc-JL-fp2"/>
-                        <segue destination="FgE-DB-Heh" kind="relationship" relationship="splitItems" id="TA1-Dt-h8l"/>
+                        <segue destination="WWE-Lz-0p6" kind="relationship" relationship="splitItems" id="NVr-RT-SHb"/>
                     </connections>
                 </splitViewController>
                 <customObject id="w3R-od-xKC" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
