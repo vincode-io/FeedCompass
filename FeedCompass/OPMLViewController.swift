@@ -2,6 +2,7 @@
 
 import AppKit
 import RSParser
+import RSWeb
 
 class OPMLViewController: NSViewController {
 	
@@ -120,8 +121,28 @@ extension OPMLViewController: NSOutlineViewDelegate {
 			return
 		}
 		
-		let splitViewController = parent as! SplitViewController
-		splitViewController.rssViewController.feedURL = feedSpecifier.feedURL
+		guard let urlString = opmlItem.feedSpecifier?.feedURL, let url = URL(string: urlString) else {
+			return
+		}
+		
+		download(url, downloadCallback)
 	}
 	
+}
+
+private extension OPMLViewController {
+	
+	private func downloadCallback(data: Data?, response: URLResponse?, error: Error?) {
+		
+		guard let url = response?.url?.absoluteString else { return }
+		guard let data = data else { return }
+		
+		let parserData = ParserData(url: url, data: data)
+		if let parsedFeed = RSSParser.parse(parserData) {
+			let splitViewController = self.parent as! SplitViewController
+			splitViewController.showRSSFeed(parsedFeed)
+		}
+		
+	}
+
 }

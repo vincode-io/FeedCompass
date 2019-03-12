@@ -10,6 +10,8 @@
 		512EA9352235A930008C9D51 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512EA9342235A930008C9D51 /* MainWindowController.swift */; };
 		512EA9372235BA5E008C9D51 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 512EA9362235BA5E008C9D51 /* Credits.rtf */; };
 		512EA94F22371E42008C9D51 /* OPMLOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512EA94E22371E42008C9D51 /* OPMLOutlineView.swift */; };
+		512EA95622382008008C9D51 /* NSStoryboard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512EA95522382008008C9D51 /* NSStoryboard+.swift */; };
+		512EA95822382177008C9D51 /* RSSMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512EA95722382177008C9D51 /* RSSMessageViewController.swift */; };
 		516037802235581600172C8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5160377F2235581600172C8D /* AppDelegate.swift */; };
 		516037842235581700172C8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 516037832235581700172C8D /* Assets.xcassets */; };
 		516037872235581700172C8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 516037852235581700172C8D /* Main.storyboard */; };
@@ -20,7 +22,7 @@
 		516037B922355AAC00172C8D /* RSWeb.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 516037AB22355A6900172C8D /* RSWeb.framework */; };
 		516037BA22355AAC00172C8D /* RSWeb.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 516037AB22355A6900172C8D /* RSWeb.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		516037C322355AFB00172C8D /* OPMLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516037BD22355AFB00172C8D /* OPMLViewController.swift */; };
-		516037C422355AFB00172C8D /* RSSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516037BE22355AFB00172C8D /* RSSViewController.swift */; };
+		516037C422355AFB00172C8D /* RSSFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516037BE22355AFB00172C8D /* RSSFeedViewController.swift */; };
 		516037C522355AFB00172C8D /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516037BF22355AFB00172C8D /* SplitViewController.swift */; };
 		516037C622355AFB00172C8D /* OPMLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516037C022355AFB00172C8D /* OPMLLocation.swift */; };
 		516037C722355AFB00172C8D /* OPMLDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516037C122355AFB00172C8D /* OPMLDownloader.swift */; };
@@ -127,6 +129,8 @@
 		512EA9342235A930008C9D51 /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		512EA9362235BA5E008C9D51 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		512EA94E22371E42008C9D51 /* OPMLOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OPMLOutlineView.swift; sourceTree = "<group>"; };
+		512EA95522382008008C9D51 /* NSStoryboard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSStoryboard+.swift"; sourceTree = "<group>"; };
+		512EA95722382177008C9D51 /* RSSMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSMessageViewController.swift; sourceTree = "<group>"; };
 		5160377C2235581600172C8D /* Feed Compass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Feed Compass.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5160377F2235581600172C8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		516037832235581700172C8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -137,7 +141,7 @@
 		5160379B22355A5E00172C8D /* RSParser.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RSParser.xcodeproj; path = submodules/RSParser/RSParser.xcodeproj; sourceTree = "<group>"; };
 		516037A422355A6900172C8D /* RSWeb.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RSWeb.xcodeproj; path = submodules/RSWeb/RSWeb.xcodeproj; sourceTree = "<group>"; };
 		516037BD22355AFB00172C8D /* OPMLViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPMLViewController.swift; sourceTree = "<group>"; };
-		516037BE22355AFB00172C8D /* RSSViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSViewController.swift; sourceTree = "<group>"; };
+		516037BE22355AFB00172C8D /* RSSFeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSFeedViewController.swift; sourceTree = "<group>"; };
 		516037BF22355AFB00172C8D /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		516037C022355AFB00172C8D /* OPMLLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPMLLocation.swift; sourceTree = "<group>"; };
 		516037C122355AFB00172C8D /* OPMLDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPMLDownloader.swift; sourceTree = "<group>"; };
@@ -183,13 +187,15 @@
 				516037852235581700172C8D /* Main.storyboard */,
 				5160377F2235581600172C8D /* AppDelegate.swift */,
 				512EA9342235A930008C9D51 /* MainWindowController.swift */,
+				516037BF22355AFB00172C8D /* SplitViewController.swift */,
 				516037C122355AFB00172C8D /* OPMLDownloader.swift */,
 				516037C022355AFB00172C8D /* OPMLLocation.swift */,
 				512EA94E22371E42008C9D51 /* OPMLOutlineView.swift */,
 				516037BD22355AFB00172C8D /* OPMLViewController.swift */,
 				516037C222355AFB00172C8D /* RSSTableCellView.swift */,
-				516037BE22355AFB00172C8D /* RSSViewController.swift */,
-				516037BF22355AFB00172C8D /* SplitViewController.swift */,
+				516037BE22355AFB00172C8D /* RSSFeedViewController.swift */,
+				512EA95722382177008C9D51 /* RSSMessageViewController.swift */,
+				512EA95522382008008C9D51 /* NSStoryboard+.swift */,
 				516037832235581700172C8D /* Assets.xcassets */,
 				516037882235581700172C8D /* Info.plist */,
 				516037892235581700172C8D /* FeedCompass.entitlements */,
@@ -383,7 +389,9 @@
 				512EA94F22371E42008C9D51 /* OPMLOutlineView.swift in Sources */,
 				516037C722355AFB00172C8D /* OPMLDownloader.swift in Sources */,
 				516037C322355AFB00172C8D /* OPMLViewController.swift in Sources */,
-				516037C422355AFB00172C8D /* RSSViewController.swift in Sources */,
+				512EA95622382008008C9D51 /* NSStoryboard+.swift in Sources */,
+				512EA95822382177008C9D51 /* RSSMessageViewController.swift in Sources */,
+				516037C422355AFB00172C8D /* RSSFeedViewController.swift in Sources */,
 				516037C622355AFB00172C8D /* OPMLLocation.swift in Sources */,
 				516037C822355AFB00172C8D /* RSSTableCellView.swift in Sources */,
 				516037802235581600172C8D /* AppDelegate.swift in Sources */,

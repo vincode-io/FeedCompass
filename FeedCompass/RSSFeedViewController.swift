@@ -3,17 +3,10 @@
 import AppKit
 import RSCore
 import RSParser
-import RSWeb
 
-class RSSViewController: NSViewController {
+class RSSFeedViewController: NSViewController {
 
 	@IBOutlet weak var tableView: NSTableView!
-	
-	var feedURL: String? {
-		didSet {
-			refresh()
-		}
-	}
 	
 	var parsedFeed: ParsedFeed?
 	var parsedItems = [ParsedItem]()
@@ -21,43 +14,32 @@ class RSSViewController: NSViewController {
 	override func viewDidLoad() {
 		tableView.delegate = self
 		tableView.dataSource = self
+		refresh()
 	}
 	
 	private func refresh() {
 
-		guard let urlString = feedURL, let url = URL(string: urlString) else {
+		guard let parsedFeed = parsedFeed else {
 			return
 		}
 		
-		download(url, downloadCallback)
-	}
+		parsedItems = Array(parsedFeed.items)
+		
+		parsedItems.sort(by: { leftItem, rightItem in
+			if let leftDate = leftItem.datePublished, let rightDate = rightItem.datePublished {
+				return leftDate.compare(rightDate) == .orderedDescending
+			}
+			return false
+		})
+		
+		tableView.scrollTo(row: 0)
+		tableView.reloadData()
 	
-	private func downloadCallback(data: Data?, response: URLResponse?, error: Error?) {
-		
-		guard let url = response?.url?.absoluteString else { return }
-		guard let data = data else { return }
-		
-		let parserData = ParserData(url: url, data: data)
-		if let parsedFeed = RSSParser.parse(parserData) {
-		
-			self.parsedFeed = parsedFeed
-			parsedItems = Array(parsedFeed.items)
-		
-			parsedItems.sort(by: { leftItem, rightItem in
-				if let leftDate = leftItem.datePublished, let rightDate = rightItem.datePublished {
-					return leftDate.compare(rightDate) == .orderedDescending
-				}
-				return false
-			})
-		
-			tableView.scrollTo(row: 0)
-			tableView.reloadData()
-		}
 	}
 	
 }
 
-extension RSSViewController: NSTableViewDataSource {
+extension RSSFeedViewController: NSTableViewDataSource {
 	
 	func numberOfRows(in tableView: NSTableView) -> Int {
 		return parsedItems.count
@@ -65,7 +47,7 @@ extension RSSViewController: NSTableViewDataSource {
 	
 }
 
-extension RSSViewController: NSTableViewDelegate {
+extension RSSFeedViewController: NSTableViewDelegate {
 	
 	private static let dateFormatter: DateFormatter = {
 		let formatter = DateFormatter()
@@ -99,7 +81,7 @@ extension RSSViewController: NSTableViewDelegate {
 			}
 
 			if let publishedDate = parsedItems[row].datePublished {
-				cell.publishedTextField.stringValue = RSSViewController.dateString(publishedDate)
+				cell.publishedTextField.stringValue = RSSFeedViewController.dateString(publishedDate)
 			} else {
 				cell.publishedTextField.stringValue = ""
 			}

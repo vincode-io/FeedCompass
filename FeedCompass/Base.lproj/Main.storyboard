@@ -247,7 +247,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="Ccg-An-iA3"/>
                                 </constraints>
-                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.20000000000000001" horizontal="YES" id="V5h-jr-hXo">
+                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="V5h-jr-hXo">
                                     <rect key="frame" x="1" y="583" width="248" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -272,10 +272,10 @@
             </objects>
             <point key="canvasLocation" x="637" y="358"/>
         </scene>
-        <!--View Controller-->
+        <!--Feed View Controller-->
         <scene sceneID="gKi-7L-ZTg">
             <objects>
-                <viewController id="FgE-DB-Heh" customClass="RSSViewController" customModule="Feed_Compass" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RSSFeedViewController" id="FgE-DB-Heh" customClass="RSSFeedViewController" customModule="Feed_Compass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="W8y-Sa-Hj9">
                         <rect key="frame" x="0.0" y="0.0" width="350" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -360,7 +360,7 @@
                                         </tableView>
                                     </subviews>
                                 </clipView>
-                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.20000000000000001" horizontal="YES" id="7I4-nw-Rhi">
+                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="7I4-nw-Rhi">
                                     <rect key="frame" x="1" y="283" width="348" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -378,7 +378,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="P5Q-7i-15j" id="fjr-Pb-lPR"/>
+                        <outlet property="tableView" destination="P5Q-7i-15j" id="fhJ-Dj-ndR"/>
                     </connections>
                 </viewController>
                 <customObject id="heC-4d-bwt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
