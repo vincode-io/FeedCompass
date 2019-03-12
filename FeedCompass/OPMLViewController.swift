@@ -143,10 +143,8 @@ private extension OPMLViewController {
 	
 	private func downloadCallback(data: Data?, response: URLResponse?, error: Error?) {
 		
-		guard let url = response?.url?.absoluteString else { return }
-		
-		guard let data = data else {
-			let feedNotFound = NSLocalizedString("Feed Not Found", comment: "RRS Feed was found")
+		guard let url = response?.url?.absoluteString, let data = data else {
+			let feedNotFound = NSLocalizedString("Feed Not Found", comment: "RRS Feed was not found")
 			splitViewController.showRSSMessage(feedNotFound)
 			return
 		}
