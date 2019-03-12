@@ -165,6 +165,13 @@ extension OPMLViewController: NSMenuDelegate {
 
 extension OPMLViewController {
 
+	@objc func subscribeFromContextualMenu(_ sender: Any?) {
+		guard let menuItem = sender as? NSMenuItem, let urlString = menuItem.representedObject as? String else {
+			return
+		}
+		MacWebBrowser.openAsFeed(urlString)
+	}
+	
 	@objc func copyURLFromContextualMenu(_ sender: Any?) {
 		guard let menuItem = sender as? NSMenuItem, let urlString = menuItem.representedObject as? String else {
 			return
@@ -228,8 +235,11 @@ private extension OPMLViewController {
 		
 		let menu = NSMenu(title: "")
 		
-		let item = menuItem(NSLocalizedString("Copy Feed URL to Clipboard", comment: "Command"), #selector(copyURLFromContextualMenu(_:)), opmlFeedSpecifier.feedURL)
-		menu.addItem(item)
+		let subscribeItem = menuItem(NSLocalizedString("Subscribe", comment: "Command"), #selector(subscribeFromContextualMenu(_:)), opmlFeedSpecifier.feedURL)
+		menu.addItem(subscribeItem)
+
+		let copyItem = menuItem(NSLocalizedString("Copy Feed URL to Clipboard", comment: "Command"), #selector(copyURLFromContextualMenu(_:)), opmlFeedSpecifier.feedURL)
+		menu.addItem(copyItem)
 
 		if let homePageURL = opmlFeedSpecifier.homePageURL {
 			let item = menuItem(NSLocalizedString("Open Feed Home Page", comment: "Command"), #selector(openURLFromContextualMenu(_:)), homePageURL)

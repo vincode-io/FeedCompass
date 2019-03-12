@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		511DB582223866E600CECD86 /* MacWebBrowser+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511DB581223866E600CECD86 /* MacWebBrowser+.swift */; };
 		512EA9352235A930008C9D51 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512EA9342235A930008C9D51 /* MainWindowController.swift */; };
 		512EA9372235BA5E008C9D51 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 512EA9362235BA5E008C9D51 /* Credits.rtf */; };
 		512EA94F22371E42008C9D51 /* OPMLOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512EA94E22371E42008C9D51 /* OPMLOutlineView.swift */; };
@@ -126,6 +127,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		511DB581223866E600CECD86 /* MacWebBrowser+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MacWebBrowser+.swift"; sourceTree = "<group>"; };
 		512EA9342235A930008C9D51 /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		512EA9362235BA5E008C9D51 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		512EA94E22371E42008C9D51 /* OPMLOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OPMLOutlineView.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				516037C222355AFB00172C8D /* RSSTableCellView.swift */,
 				516037BE22355AFB00172C8D /* RSSFeedViewController.swift */,
 				512EA95722382177008C9D51 /* RSSMessageViewController.swift */,
+				511DB581223866E600CECD86 /* MacWebBrowser+.swift */,
 				512EA95522382008008C9D51 /* NSStoryboard+.swift */,
 				516037832235581700172C8D /* Assets.xcassets */,
 				516037882235581700172C8D /* Info.plist */,
@@ -387,6 +390,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				512EA94F22371E42008C9D51 /* OPMLOutlineView.swift in Sources */,
+				511DB582223866E600CECD86 /* MacWebBrowser+.swift in Sources */,
 				516037C722355AFB00172C8D /* OPMLDownloader.swift in Sources */,
 				516037C322355AFB00172C8D /* OPMLViewController.swift in Sources */,
 				512EA95622382008008C9D51 /* NSStoryboard+.swift in Sources */,

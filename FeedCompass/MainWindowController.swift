@@ -25,22 +25,10 @@ class MainWindowController: NSWindowController, NSUserInterfaceValidations {
 	}
 	
 	@IBAction func subscribe(_ sender: Any?) {
-		
 		guard let feedURL = opmlViewController.currentlySelectedOPMLItem?.feedSpecifier?.feedURL else {
 			return
 		}
-		
-		guard let index = feedURL.firstIndex(of: ":") else {
-			return
-		}
-		
-		let newFeedURL = "feed\(feedURL.suffix(from: index))"
-		
-		guard let url = URL(string: newFeedURL) else {
-			return
-		}
-		
-		MacWebBrowser.openURL(url, inBackground: false)
+		MacWebBrowser.openAsFeed(feedURL)
 	}
 
 }
