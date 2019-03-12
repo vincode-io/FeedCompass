@@ -8,6 +8,10 @@ class OPMLViewController: NSViewController {
 	
 	@IBOutlet weak var outlineView: NSOutlineView!
 	
+	var splitViewController: SplitViewController {
+		return self.parent as! SplitViewController
+	}
+	
 	private let opmlLocations: Set = [
 		OPMLLocation(title: "feedBase.io - Hotlist", url: "http://opml.feedbase.io/hotlist.opml"),
 		OPMLLocation(title: "iOS Development Blogs", url: "https://iosdevdirectory.com/opml/en/development.opml"),
@@ -36,6 +40,7 @@ class OPMLViewController: NSViewController {
 		NotificationCenter.default.addObserver(self, selector: #selector(opmlDidDownload(_:)), name: .OPMLDidDownload, object: nil)
 
 		opmlDownloader.load(opmlLocations)
+		
 	}
 	
 	// MARK: - Notifications
@@ -117,11 +122,15 @@ extension OPMLViewController: NSOutlineViewDelegate {
 	
 	func outlineViewSelectionDidChange(_ notification: Notification) {
 		
-		guard let opmlItem = currentlySelectedOPMLItem, let feedSpecifier = opmlItem.feedSpecifier else {
+		guard let opmlItem = currentlySelectedOPMLItem else {
+			let noneSelected = NSLocalizedString("None Selected", comment: "No RSS Feed was selected")
+			splitViewController.showRSSMessage(noneSelected)
 			return
 		}
 		
 		guard let urlString = opmlItem.feedSpecifier?.feedURL, let url = URL(string: urlString) else {
+			let invalidURL = NSLocalizedString("Invalid Feed URL", comment: "RRS Feed URL was invalid")
+			splitViewController.showRSSMessage(invalidURL)
 			return
 		}
 		
@@ -135,12 +144,21 @@ private extension OPMLViewController {
 	private func downloadCallback(data: Data?, response: URLResponse?, error: Error?) {
 		
 		guard let url = response?.url?.absoluteString else { return }
-		guard let data = data else { return }
+		
+		guard let data = data else {
+			let feedNotFound = NSLocalizedString("Feed Not Found", comment: "RRS Feed was found")
+			splitViewController.showRSSMessage(feedNotFound)
+			return
+		}
 		
 		let parserData = ParserData(url: url, data: data)
 		if let parsedFeed = RSSParser.parse(parserData) {
-			let splitViewController = self.parent as! SplitViewController
-			splitViewController.showRSSFeed(parsedFeed)
+			if parsedFeed.items.count > 0 {
+				splitViewController.showRSSFeed(parsedFeed)
+			} else {
+				let emptyFeed = NSLocalizedString("Empty Feed", comment: "RRS Feed had no articles")
+				splitViewController.showRSSMessage(emptyFeed)
+			}
 		}
 		
 	}

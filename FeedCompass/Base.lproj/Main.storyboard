@@ -186,10 +186,10 @@
             </objects>
             <point key="canvasLocation" x="74" y="924"/>
         </scene>
-        <!--View Controller-->
+        <!--OPML View Controller-->
         <scene sceneID="ZkW-AA-AMe">
             <objects>
-                <viewController id="yB4-BD-9RZ" customClass="OPMLViewController" customModule="Feed_Compass" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="yB4-BD-9RZ" userLabel="OPML View Controller" customClass="OPMLViewController" customModule="Feed_Compass" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Wxv-dK-FF6">
                         <rect key="frame" x="0.0" y="0.0" width="250" height="600"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -247,7 +247,7 @@
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="250" id="Ccg-An-iA3"/>
                                 </constraints>
-                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="V5h-jr-hXo">
+                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.20000000000000001" horizontal="YES" id="V5h-jr-hXo">
                                     <rect key="frame" x="1" y="583" width="248" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -384,6 +384,36 @@
                 <customObject id="heC-4d-bwt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="695" y="924"/>
+        </scene>
+        <!--Message View Controller-->
+        <scene sceneID="8c5-LT-3V3">
+            <objects>
+                <viewController storyboardIdentifier="RSSMessageViewController" id="WWE-Lz-0p6" customClass="RSSMessageViewController" customModule="Feed_Compass" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="c5p-Ss-6JD">
+                        <rect key="frame" x="0.0" y="0.0" width="350" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="b4T-vZ-xuP">
+                                <rect key="frame" x="146" y="142" width="59" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Message" id="Hom-QM-Rw4">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="b4T-vZ-xuP" firstAttribute="centerY" secondItem="c5p-Ss-6JD" secondAttribute="centerY" id="10b-DJ-eAn"/>
+                            <constraint firstItem="b4T-vZ-xuP" firstAttribute="centerX" secondItem="c5p-Ss-6JD" secondAttribute="centerX" id="5qv-1I-jHe"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="messageLabel" destination="b4T-vZ-xuP" id="7aE-bI-1TC"/>
+                    </connections>
+                </viewController>
+                <customObject id="2NG-8N-Xcg" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="695" y="1327"/>
         </scene>
     </scenes>
 </document>
