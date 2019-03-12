@@ -153,7 +153,7 @@ extension OPMLViewController: NSMenuDelegate {
 
 	public func menuNeedsUpdate(_ menu: NSMenu) {
 		menu.removeAllItems()
-		guard let contextualMenu = contextualMenuForClickedRows() else {
+		guard let contextualMenu = contextualMenuForClickedRow() else {
 			return
 		}
 		menu.takeItems(from: contextualMenu)
@@ -209,7 +209,7 @@ private extension OPMLViewController {
 		
 	}
 
-	func contextualMenuForClickedRows() -> NSMenu? {
+	func contextualMenuForClickedRow() -> NSMenu? {
 		
 		let row = outlineView.clickedRow
 		guard row != -1, let opmlItem = outlineView.item(atRow: row) as? RSOPMLItem else {
