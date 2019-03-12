@@ -134,6 +134,9 @@ extension OPMLViewController: NSOutlineViewDelegate {
 			return
 		}
 		
+		let feedNotFound = NSLocalizedString("Loading...", comment: "RRS Feed is currently loading.")
+		splitViewController.showRSSMessage(feedNotFound)
+
 		download(url, downloadCallback)
 	}
 	
