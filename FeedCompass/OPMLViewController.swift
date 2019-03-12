@@ -1,6 +1,7 @@
 //Copyright © 2019 Vincode, Inc. All rights reserved.
 
 import AppKit
+import RSCore
 import RSParser
 import RSWeb
 
@@ -58,6 +59,8 @@ class OPMLViewController: NSViewController {
 
 }
 
+// MARK: NSOutlineViewDataSource
+
 extension OPMLViewController: NSOutlineViewDataSource {
 	
 	func outlineView(_ outlineView: NSOutlineView, child index: Int, ofItem item: Any?) -> Any {
@@ -88,6 +91,8 @@ extension OPMLViewController: NSOutlineViewDataSource {
 	}
 	
 }
+
+// MARK: NSOutlineViewDelegate
 
 extension OPMLViewController: NSOutlineViewDelegate {
 	
@@ -142,9 +147,49 @@ extension OPMLViewController: NSOutlineViewDelegate {
 	
 }
 
+// MARK: NSMenuDelegate
+
+extension OPMLViewController: NSMenuDelegate {
+
+	public func menuNeedsUpdate(_ menu: NSMenu) {
+		menu.removeAllItems()
+		guard let contextualMenu = contextualMenuForClickedRows() else {
+			return
+		}
+		menu.takeItems(from: contextualMenu)
+	}
+
+}
+
+// MARK: Contextual Menu Actions
+
+extension OPMLViewController {
+
+	@objc func copyURLFromContextualMenu(_ sender: Any?) {
+		guard let menuItem = sender as? NSMenuItem, let urlString = menuItem.representedObject as? String else {
+			return
+		}
+		URLPasteboardWriter.write(urlString: urlString, to: NSPasteboard.general)
+	}
+	
+	@objc func openURLFromContextualMenu(_ sender: Any?) {
+		guard let menuItem = sender as? NSMenuItem,
+			let urlString = menuItem.representedObject as? String,
+			let url = URL(string: urlString)
+		else {
+			return
+		}
+		MacWebBrowser.openURL(url, inBackground: false)
+	}
+	
+}
+
+
+// MARK: Private Functions
+
 private extension OPMLViewController {
 	
-	private func downloadCallback(data: Data?, response: URLResponse?, error: Error?) {
+	func downloadCallback(data: Data?, response: URLResponse?, error: Error?) {
 		
 		guard let url = response?.url?.absoluteString, let data = data else {
 			let feedNotFound = NSLocalizedString("Feed Not Found", comment: "RRS Feed was not found")
@@ -162,6 +207,44 @@ private extension OPMLViewController {
 			}
 		}
 		
+	}
+
+	func contextualMenuForClickedRows() -> NSMenu? {
+		
+		let row = outlineView.clickedRow
+		guard row != -1, let opmlItem = outlineView.item(atRow: row) as? RSOPMLItem else {
+			return nil
+		}
+		
+		if let opmlFeedSpecifier = opmlItem.feedSpecifier {
+			return menuForFeed(opmlFeedSpecifier)
+		}
+		
+		return nil
+		
+	}
+
+	func menuForFeed(_ opmlFeedSpecifier: RSOPMLFeedSpecifier) -> NSMenu? {
+		
+		let menu = NSMenu(title: "")
+		
+		let item = menuItem(NSLocalizedString("Copy Feed URL to Clipboard", comment: "Command"), #selector(copyURLFromContextualMenu(_:)), opmlFeedSpecifier.feedURL)
+		menu.addItem(item)
+
+		if let homePageURL = opmlFeedSpecifier.homePageURL {
+			let item = menuItem(NSLocalizedString("Open Feed Home Page", comment: "Command"), #selector(openURLFromContextualMenu(_:)), homePageURL)
+			menu.addItem(item)
+		}
+		
+		return menu
+	}
+	
+
+	func menuItem(_ title: String, _ action: Selector, _ representedObject: Any) -> NSMenuItem {
+		let item = NSMenuItem(title: title, action: action, keyEquivalent: "")
+		item.representedObject = representedObject
+		item.target = self
+		return item
 	}
 
 }
