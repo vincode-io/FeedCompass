@@ -98,7 +98,7 @@ extension OPMLViewController: NSOutlineViewDelegate {
 	
 	func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
 		
-		if let cell = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "OPMLTableVIewCell"), owner: nil) as? NSTableCellView {
+		if let cell = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "OPMLTableViewCell"), owner: nil) as? NSTableCellView {
 			if let opmlDoc = item as? RSOPMLDocument {
 				cell.textField?.stringValue = opmlDoc.title ?? "N/A"
 			} else if let opmlItem = item as? RSOPMLItem {
