@@ -237,7 +237,9 @@ private extension OPMLViewController {
 		
 		let subscribeItem = menuItem(NSLocalizedString("Subscribe", comment: "Command"), #selector(subscribeFromContextualMenu(_:)), opmlFeedSpecifier.feedURL)
 		menu.addItem(subscribeItem)
-
+		
+		menu.addItem(NSMenuItem.separator())
+		
 		let copyItem = menuItem(NSLocalizedString("Copy Feed URL to Clipboard", comment: "Command"), #selector(copyURLFromContextualMenu(_:)), opmlFeedSpecifier.feedURL)
 		menu.addItem(copyItem)
 
