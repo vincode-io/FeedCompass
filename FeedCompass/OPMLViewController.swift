@@ -126,6 +126,10 @@ extension OPMLViewController: NSOutlineViewDelegate {
 		
 	}
 	
+	func outlineView(_ outlineView: NSOutlineView, heightOfRowByItem item: Any) -> CGFloat {
+		return 22.0
+	}
+	
 	func outlineView(_ outlineView: NSOutlineView, isGroupItem item: Any) -> Bool {
 		return false
 	}
