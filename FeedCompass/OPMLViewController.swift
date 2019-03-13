@@ -25,7 +25,16 @@ class OPMLViewController: NSViewController {
 	
 	private let opmlDownloader = OPMLDownloader()
 	private var opmls = [RSOPMLDocument]()
-
+	
+	private let folderImage: NSImage? = {
+		return NSImage(named: "NSFolder")
+	}()
+	
+	private let faviconImage: NSImage? = {
+		let path = "/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/BookmarkIcon.icns"
+		return NSImage(contentsOfFile: path)
+	}()
+	
 	var currentlySelectedOPMLItem: RSOPMLItem? {
 		let selectedRows = outlineView.selectedRowIndexes
 		return selectedRows.map({ outlineView.item(atRow: $0) as! RSOPMLItem }).first
@@ -100,9 +109,15 @@ extension OPMLViewController: NSOutlineViewDelegate {
 		
 		if let cell = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "OPMLTableViewCell"), owner: nil) as? NSTableCellView {
 			if let opmlDoc = item as? RSOPMLDocument {
+				cell.imageView?.image = folderImage
 				cell.textField?.stringValue = opmlDoc.title ?? "N/A"
 			} else if let opmlItem = item as? RSOPMLItem {
-				cell.textField?.stringValue = opmlItem.titleFromAttributes ?? "N/A"
+				if opmlItem.children?.count ?? 0 > 0 {
+					cell.imageView?.image = folderImage
+				} else {
+					cell.imageView?.image = faviconImage
+				}
+ 				cell.textField?.stringValue = opmlItem.titleFromAttributes ?? "N/A"
 			}
 			return cell
 		}
