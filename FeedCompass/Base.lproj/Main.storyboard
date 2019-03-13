@@ -58,15 +58,40 @@
                             </menuItem>
                             <menuItem title="File" id="dMs-cI-mzQ">
                                 <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="File" id="wl5-NZ-tPD">
+                                    <items>
+                                        <menuItem title="Open" id="A4u-Cr-Nly">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        </menuItem>
+                                        <menuItem title="Subscribe" keyEquivalent="s" id="MQo-wf-xcN"/>
+                                    </items>
+                                </menu>
                             </menuItem>
-                            <menuItem title="Edit" id="5QF-Oa-p0T">
+                            <menuItem title="Feed" id="H8h-7b-M4v">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                            </menuItem>
-                            <menuItem title="Format" id="jxT-CU-nIS">
-                                <modifierMask key="keyEquivalentModifierMask"/>
-                            </menuItem>
-                            <menuItem title="View" id="H8h-7b-M4v">
-                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Feed" id="vDk-M5-jHa">
+                                    <items>
+                                        <menuItem title="Subscribe" id="VAP-yZ-Jmk">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="subscribe:" target="Ady-hI-5gd" id="TXI-XW-ltc"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="wsg-LW-ofA"/>
+                                        <menuItem title="Copy Feed URL to Clipboard" id="2eo-Zx-lgB">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="copyURL:" target="Ady-hI-5gd" id="hDv-Sv-pnb"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Open Feed Home Page" id="GcI-qm-sQJ">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="openHomePage:" target="Ady-hI-5gd" id="Yis-Li-sse"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
                             </menuItem>
                             <menuItem title="Window" id="aUF-d1-5bR">
                                 <modifierMask key="keyEquivalentModifierMask"/>

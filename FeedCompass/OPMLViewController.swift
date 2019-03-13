@@ -14,11 +14,11 @@ class OPMLViewController: NSViewController {
 	}
 	
 	private let opmlLocations: Set = [
-		OPMLLocation(title: "feedBase.io - Hotlist", url: "http://opml.feedbase.io/hotlist.opml"),
-		OPMLLocation(title: "iOS Development Blogs", url: "https://iosdevdirectory.com/opml/en/development.opml"),
-		OPMLLocation(title: "iOS Design Blogs", url: "https://iosdevdirectory.com/opml/en/design.opml"),
-		OPMLLocation(title: "iOS Marketing Blogs", url: "https://iosdevdirectory.com/opml/en/marketing.opml"),
-		OPMLLocation(title: "iOS Development Company Blogs", url: "https://iosdevdirectory.com/opml/en/companies.opml"),
+		OPMLLocation(title: "feedBase - Hotlist", url: "http://opml.feedbase.io/hotlist.opml"),
+		OPMLLocation(title: "iOS Developers", url: "https://iosdevdirectory.com/opml/en/development.opml"),
+		OPMLLocation(title: "iOS Design", url: "https://iosdevdirectory.com/opml/en/design.opml"),
+		OPMLLocation(title: "iOS Marketing", url: "https://iosdevdirectory.com/opml/en/marketing.opml"),
+		OPMLLocation(title: "iOS Development Companies", url: "https://iosdevdirectory.com/opml/en/companies.opml"),
 		OPMLLocation(title: "iOS Development Newsletters", url: "https://iosdevdirectory.com/opml/en/newsletters.opml"),
 		OPMLLocation(title: "Chris Aldrich - Following", url: "https://www.boffosocko.com/wp-links-opml.php")
 	]
