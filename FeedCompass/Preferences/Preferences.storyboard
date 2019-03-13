@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="7mA-Ej-7S7">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Window Controller-->
+        <scene sceneID="gze-Su-dHA">
+            <objects>
+                <windowController id="7mA-Ej-7S7" sceneMemberID="viewController">
+                    <window key="window" title="Preferences" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="Preferences" animationBehavior="default" id="xMe-gv-swW">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="425" y="462" width="480" height="269"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="2560" height="1417"/>
+                        <connections>
+                            <outlet property="delegate" destination="7mA-Ej-7S7" id="vDe-2S-1BQ"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="d0F-Th-bPq" kind="relationship" relationship="window.shadowedContentViewController" id="5de-kg-Kxd"/>
+                    </connections>
+                </windowController>
+                <customObject id="osn-x1-8P5" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-28" y="49.5"/>
+        </scene>
+        <!--Preferences View Controller-->
+        <scene sceneID="LUc-VS-GH4">
+            <objects>
+                <viewController id="d0F-Th-bPq" customClass="PreferencesViewController" customModule="Feed_Compass" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="9ie-AP-DRk">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="119"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="MEI-Sl-U0e">
+                                <rect key="frame" x="57" y="16" width="287" height="87"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3Ra-ue-Mt8">
+                                        <rect key="frame" x="18" y="50" width="80" height="17"/>
+                                        <textFieldCell key="cell" lineBreakMode="clipping" title="RSS Reader:" id="Gq3-wD-RkU">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="t9e-Ax-bgb">
+                                        <rect key="frame" x="120" y="43" width="150" height="25"/>
+                                        <popUpButtonCell key="cell" type="push" title="Local Mac Reader" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="Hld-3Z-P5N" id="7Yg-eV-dUR">
+                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="menu"/>
+                                            <menu key="menu" id="GIc-Ty-C9y">
+                                                <items>
+                                                    <menuItem title="Local Mac Reader" state="on" identifier="local" id="Hld-3Z-P5N"/>
+                                                    <menuItem isSeparatorItem="YES" id="aCy-TQ-koT"/>
+                                                    <menuItem title="Feedbin" identifier="feedbin" id="jSd-fe-DPu"/>
+                                                    <menuItem title="Feedly" identifier="feedly" id="7Oq-l7-QG7"/>
+                                                    <menuItem title="NewsBlur" identifier="newsblur" id="dAB-p7-h2a">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                    <menuItem title="Inoreader" identifier="inoreader" id="AAM-BT-Awz">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                    <menuItem title="Other Web Reader" identifier="other" id="qWt-Hh-nPK">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </popUpButtonCell>
+                                        <connections>
+                                            <action selector="rssReaderPopUpButtonSelected:" target="d0F-Th-bPq" id="iF0-wT-23f"/>
+                                        </connections>
+                                    </popUpButton>
+                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="Ky3-KY-wu8">
+                                        <rect key="frame" x="20" y="16" width="247" height="22"/>
+                                        <subviews>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XPX-cL-Qld">
+                                                <rect key="frame" x="-2" y="0.0" width="34" height="22"/>
+                                                <textFieldCell key="cell" lineBreakMode="clipping" title="URL:" id="19W-wE-77A">
+                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                            <textField verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="38l-dB-XKb">
+                                                <rect key="frame" x="38" y="0.0" width="209" height="22"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="ngf-z1-8Av">
+                                                    <font key="font" metaFont="system"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                                <connections>
+                                                    <action selector="urlTextFieldUpdated:" target="d0F-Th-bPq" id="SfB-vL-D3y"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="38l-dB-XKb" secondAttribute="trailing" id="9wf-lz-aAa"/>
+                                            <constraint firstItem="XPX-cL-Qld" firstAttribute="leading" secondItem="Ky3-KY-wu8" secondAttribute="leading" id="DhB-TM-o1z"/>
+                                            <constraint firstItem="XPX-cL-Qld" firstAttribute="top" secondItem="Ky3-KY-wu8" secondAttribute="top" id="GLC-Wm-guk"/>
+                                            <constraint firstAttribute="bottom" secondItem="38l-dB-XKb" secondAttribute="bottom" id="KaH-bT-nAR"/>
+                                            <constraint firstItem="38l-dB-XKb" firstAttribute="leading" secondItem="XPX-cL-Qld" secondAttribute="trailing" constant="8" symbolic="YES" id="av7-O5-tLN"/>
+                                            <constraint firstAttribute="bottom" secondItem="XPX-cL-Qld" secondAttribute="bottom" id="ySQ-8P-1Oh"/>
+                                            <constraint firstItem="38l-dB-XKb" firstAttribute="top" secondItem="Ky3-KY-wu8" secondAttribute="top" id="yln-3B-UMb"/>
+                                        </constraints>
+                                    </customView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="t9e-Ax-bgb" firstAttribute="leading" secondItem="3Ra-ue-Mt8" secondAttribute="trailing" constant="26" id="6mf-0E-Ncj"/>
+                                    <constraint firstItem="t9e-Ax-bgb" firstAttribute="top" secondItem="MEI-Sl-U0e" secondAttribute="top" constant="20" symbolic="YES" id="GqN-i6-Qpi"/>
+                                    <constraint firstItem="3Ra-ue-Mt8" firstAttribute="leading" secondItem="MEI-Sl-U0e" secondAttribute="leading" constant="20" symbolic="YES" id="MAB-X1-1Qg"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ky3-KY-wu8" secondAttribute="bottom" constant="16" id="Wht-jd-Num"/>
+                                    <constraint firstAttribute="trailing" secondItem="t9e-Ax-bgb" secondAttribute="trailing" constant="20" symbolic="YES" id="Wl7-rz-iIc"/>
+                                    <constraint firstItem="Ky3-KY-wu8" firstAttribute="leading" secondItem="MEI-Sl-U0e" secondAttribute="leading" constant="20" symbolic="YES" id="csZ-Rg-waR"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ky3-KY-wu8" secondAttribute="trailing" constant="20" symbolic="YES" id="hNe-uc-0hQ"/>
+                                    <constraint firstItem="Ky3-KY-wu8" firstAttribute="top" secondItem="t9e-Ax-bgb" secondAttribute="bottom" constant="8" symbolic="YES" id="vLb-6v-hBQ"/>
+                                    <constraint firstItem="3Ra-ue-Mt8" firstAttribute="top" secondItem="MEI-Sl-U0e" secondAttribute="top" constant="20" symbolic="YES" id="wzA-nH-FcN"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="MEI-Sl-U0e" firstAttribute="top" secondItem="9ie-AP-DRk" secondAttribute="top" constant="16" id="ESf-qy-9LV"/>
+                            <constraint firstAttribute="bottom" secondItem="MEI-Sl-U0e" secondAttribute="bottom" constant="16" id="EXu-BT-MN2"/>
+                            <constraint firstItem="MEI-Sl-U0e" firstAttribute="centerX" secondItem="9ie-AP-DRk" secondAttribute="centerX" id="mVy-qS-k0H"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="rssReaderPopUpButton" destination="t9e-Ax-bgb" id="6Dd-cT-9Si"/>
+                        <outlet property="urlContainerTopConstraint" destination="vLb-6v-hBQ" id="S8W-EQ-q8x"/>
+                        <outlet property="urlContainerView" destination="Ky3-KY-wu8" id="AVL-eb-LAp"/>
+                        <outlet property="urlTextField" destination="38l-dB-XKb" id="0V9-ah-0yw"/>
+                    </connections>
+                </viewController>
+                <customObject id="LK4-Yp-3sk" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-28" y="515.5"/>
+        </scene>
+    </scenes>
+</document>

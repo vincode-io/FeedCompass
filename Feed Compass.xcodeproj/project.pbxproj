@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		511DB582223866E600CECD86 /* MacWebBrowser+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511DB581223866E600CECD86 /* MacWebBrowser+.swift */; };
+		511DB58C2239A6ED00CECD86 /* Preferences.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 511DB58B2239A6ED00CECD86 /* Preferences.storyboard */; };
+		511DB58E2239AF3100CECD86 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511DB58D2239AF3100CECD86 /* PreferencesViewController.swift */; };
+		511DB5902239B45900CECD86 /* AppDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 511DB58F2239B45900CECD86 /* AppDefaults.swift */; };
 		512EA9352235A930008C9D51 /* MainWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512EA9342235A930008C9D51 /* MainWindowController.swift */; };
 		512EA9372235BA5E008C9D51 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 512EA9362235BA5E008C9D51 /* Credits.rtf */; };
 		512EA94F22371E42008C9D51 /* OPMLOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512EA94E22371E42008C9D51 /* OPMLOutlineView.swift */; };
@@ -128,6 +131,9 @@
 
 /* Begin PBXFileReference section */
 		511DB581223866E600CECD86 /* MacWebBrowser+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MacWebBrowser+.swift"; sourceTree = "<group>"; };
+		511DB58B2239A6ED00CECD86 /* Preferences.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Preferences.storyboard; sourceTree = "<group>"; };
+		511DB58D2239AF3100CECD86 /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		511DB58F2239B45900CECD86 /* AppDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDefaults.swift; sourceTree = "<group>"; };
 		512EA9342235A930008C9D51 /* MainWindowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainWindowController.swift; sourceTree = "<group>"; };
 		512EA9362235BA5E008C9D51 /* Credits.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = Credits.rtf; sourceTree = "<group>"; };
 		512EA94E22371E42008C9D51 /* OPMLOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OPMLOutlineView.swift; sourceTree = "<group>"; };
@@ -164,6 +170,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		511DB5882239A5E700CECD86 /* MainWindow */ = {
+			isa = PBXGroup;
+			children = (
+				512EA9342235A930008C9D51 /* MainWindowController.swift */,
+				516037BF22355AFB00172C8D /* SplitViewController.swift */,
+				516037BD22355AFB00172C8D /* OPMLViewController.swift */,
+				512EA94E22371E42008C9D51 /* OPMLOutlineView.swift */,
+				516037C122355AFB00172C8D /* OPMLDownloader.swift */,
+				516037C022355AFB00172C8D /* OPMLLocation.swift */,
+				512EA95722382177008C9D51 /* RSSMessageViewController.swift */,
+				516037BE22355AFB00172C8D /* RSSFeedViewController.swift */,
+				516037C222355AFB00172C8D /* RSSTableCellView.swift */,
+			);
+			path = MainWindow;
+			sourceTree = "<group>";
+		};
+		511DB5892239A61900CECD86 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				511DB581223866E600CECD86 /* MacWebBrowser+.swift */,
+				512EA95522382008008C9D51 /* NSStoryboard+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		511DB58A2239A6A400CECD86 /* Preferences */ = {
+			isa = PBXGroup;
+			children = (
+				511DB58B2239A6ED00CECD86 /* Preferences.storyboard */,
+				511DB58D2239AF3100CECD86 /* PreferencesViewController.swift */,
+			);
+			path = Preferences;
+			sourceTree = "<group>";
+		};
 		516037732235581600172C8D = {
 			isa = PBXGroup;
 			children = (
@@ -188,17 +228,10 @@
 			children = (
 				516037852235581700172C8D /* Main.storyboard */,
 				5160377F2235581600172C8D /* AppDelegate.swift */,
-				512EA9342235A930008C9D51 /* MainWindowController.swift */,
-				516037BF22355AFB00172C8D /* SplitViewController.swift */,
-				516037BD22355AFB00172C8D /* OPMLViewController.swift */,
-				512EA94E22371E42008C9D51 /* OPMLOutlineView.swift */,
-				516037C122355AFB00172C8D /* OPMLDownloader.swift */,
-				516037C022355AFB00172C8D /* OPMLLocation.swift */,
-				512EA95722382177008C9D51 /* RSSMessageViewController.swift */,
-				516037BE22355AFB00172C8D /* RSSFeedViewController.swift */,
-				516037C222355AFB00172C8D /* RSSTableCellView.swift */,
-				511DB581223866E600CECD86 /* MacWebBrowser+.swift */,
-				512EA95522382008008C9D51 /* NSStoryboard+.swift */,
+				511DB58F2239B45900CECD86 /* AppDefaults.swift */,
+				511DB5882239A5E700CECD86 /* MainWindow */,
+				511DB58A2239A6A400CECD86 /* Preferences */,
+				511DB5892239A61900CECD86 /* Extensions */,
 				516037832235581700172C8D /* Assets.xcassets */,
 				516037882235581700172C8D /* Info.plist */,
 				516037892235581700172C8D /* FeedCompass.entitlements */,
@@ -379,6 +412,7 @@
 				516037842235581700172C8D /* Assets.xcassets in Resources */,
 				512EA9372235BA5E008C9D51 /* Credits.rtf in Resources */,
 				516037872235581700172C8D /* Main.storyboard in Resources */,
+				511DB58C2239A6ED00CECD86 /* Preferences.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,7 +430,9 @@
 				512EA95622382008008C9D51 /* NSStoryboard+.swift in Sources */,
 				512EA95822382177008C9D51 /* RSSMessageViewController.swift in Sources */,
 				516037C422355AFB00172C8D /* RSSFeedViewController.swift in Sources */,
+				511DB5902239B45900CECD86 /* AppDefaults.swift in Sources */,
 				516037C622355AFB00172C8D /* OPMLLocation.swift in Sources */,
+				511DB58E2239AF3100CECD86 /* PreferencesViewController.swift in Sources */,
 				516037C822355AFB00172C8D /* RSSTableCellView.swift in Sources */,
 				516037802235581600172C8D /* AppDelegate.swift in Sources */,
 				512EA9352235A930008C9D51 /* MainWindowController.swift in Sources */,

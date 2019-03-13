@@ -7,6 +7,19 @@ extension MacWebBrowser {
 
 	@discardableResult public class func openAsFeed(_ url: String) -> Bool {
 		
+		if let subscribeURL = AppDefaults.readerAddFeedURL {
+			guard let fullURL = URL(string: subscribeURL + url) else {
+				return false
+			}
+			return MacWebBrowser.openURL(fullURL, inBackground: false)
+		} else {
+			return openLocalReader(url)
+		}
+		
+	}
+
+	private class func openLocalReader(_ url: String) -> Bool {
+		
 		guard let index = url.firstIndex(of: ":") else {
 			return false
 		}
@@ -18,7 +31,7 @@ extension MacWebBrowser {
 		}
 		
 		return MacWebBrowser.openURL(url, inBackground: false)
-
+		
 	}
-
+	
 }
