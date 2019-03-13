@@ -13,6 +13,11 @@ looking for a good, free RSS Reader we recommend
 It is currently in development, but is usable right now.  You can download it
 here: [Feed Compass Download](http://vincode.io/Feed%20Compass.app.zip)
 
+## Feedback
+
+Have something you want to say about Feed Compass?  Leave a comment in our
+[Feedback](https://github.com/vincode-io/FeedCompass/issues/17) issue.
+
 ## Contributing
 
 Pull requests are welcome.  If you are a non-technical person and want to
