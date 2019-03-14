@@ -13,16 +13,6 @@ class OPMLViewController: NSViewController {
 		return self.parent as! SplitViewController
 	}
 	
-	private let opmlLocations: Set = [
-		OPMLLocation(title: "feedBase - Hotlist", url: "http://opml.feedbase.io/hotlist.opml"),
-		OPMLLocation(title: "iOS Developers", url: "https://iosdevdirectory.com/opml/en/development.opml"),
-		OPMLLocation(title: "iOS Design", url: "https://iosdevdirectory.com/opml/en/design.opml"),
-		OPMLLocation(title: "iOS Marketing", url: "https://iosdevdirectory.com/opml/en/marketing.opml"),
-		OPMLLocation(title: "iOS Development Companies", url: "https://iosdevdirectory.com/opml/en/companies.opml"),
-		OPMLLocation(title: "iOS Development Newsletters", url: "https://iosdevdirectory.com/opml/en/newsletters.opml"),
-		OPMLLocation(title: "Chris Aldrich - Following", url: "https://www.boffosocko.com/wp-links-opml.php")
-	]
-	
 	private let opmlDownloader = OPMLDownloader()
 	private var opmls = [RSOPMLDocument]()
 	
@@ -58,7 +48,7 @@ class OPMLViewController: NSViewController {
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(opmlDidDownload(_:)), name: .OPMLDidDownload, object: nil)
 
-		opmlDownloader.load(opmlLocations)
+		opmlDownloader.load()
 		
 	}
 	
@@ -66,7 +56,7 @@ class OPMLViewController: NSViewController {
 	
 	@objc func opmlDidDownload(_ note: Notification) {
 		
-		guard let opmlDocument = note.userInfo?[OPMLLocation.UserInfoKey.opmlDocument] as? RSOPMLDocument else {
+		guard let opmlDocument = note.userInfo?[OPMLDownloader.UserInfoKey.opmlDocument] as? RSOPMLDocument else {
 			return
 		}
 		

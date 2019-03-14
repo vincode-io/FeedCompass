@@ -4,8 +4,21 @@ import Foundation
 import RSParser
 import RSWeb
 
+public extension Notification.Name {
+	static let OPMLDidDownload = Notification.Name(rawValue: "OPMLDidDownloadOPML")
+}
+
 final class OPMLDownloader {
 	
+	public struct UserInfoKey {
+		public static let opmlDocument = "opmlDocument" // OPMLDidDownload
+	}
+
+	private struct OPMLLocation: Hashable {
+		let title: String
+		let url: String
+	}
+
 	private lazy var downloadSession: DownloadSession = {
 		return DownloadSession(delegate: self)
 	}()
@@ -14,8 +27,17 @@ final class OPMLDownloader {
 		return downloadSession.progress
 	}
 	
-	public func load(_ opmlLocations: Set<OPMLLocation>) {
-		downloadSession.downloadObjects(opmlLocations as NSSet)
+	public func load() {
+		
+		let plist = Bundle.main.path(forResource: "OPML", ofType: "plist")!
+		let opml = NSArray(contentsOfFile: plist)! as! [[String: Any]]
+		
+		let opmlLocations = opml.compactMap( { dict in
+			return OPMLLocation(title: dict["title"] as! String, url: dict["url"] as! String)
+		} )
+		
+		downloadSession.downloadObjects(Set(opmlLocations) as NSSet)
+		
 	}
 	
 }
@@ -54,7 +76,7 @@ extension OPMLDownloader: DownloadSessionDelegate {
 			opmlDocument.title = opmlLocation.title
 			
 			var userInfo = [String: Any]()
-			userInfo[OPMLLocation.UserInfoKey.opmlDocument] = opmlDocument
+			userInfo[OPMLDownloader.UserInfoKey.opmlDocument] = opmlDocument
 			NotificationCenter.default.post(name: .OPMLDidDownload, object: self, userInfo: userInfo)
 			
 		}
