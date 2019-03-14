@@ -74,6 +74,8 @@ private extension PreferencesViewController {
 			AppDefaults.readerAddFeedURL = "http://www.newsblur.com/?url="
 		case "inoreader":
 			AppDefaults.readerAddFeedURL = "https://www.inoreader.com/?add_feed="
+		case "theoldreader":
+			AppDefaults.readerAddFeedURL = "http://theoldreader.com/feeds/subscribe?url="
 		case "other":
 			AppDefaults.readerAddFeedURL = urlTextField.stringValue
 		default:

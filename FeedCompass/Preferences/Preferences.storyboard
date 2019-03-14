@@ -63,6 +63,9 @@
                                                     <menuItem title="Inoreader" identifier="inoreader" id="AAM-BT-Awz">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                     </menuItem>
+                                                    <menuItem title="The Old Reader" identifier="theoldreader" id="wy8-rD-XHC">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
                                                     <menuItem title="Other Web Reader" identifier="other" id="qWt-Hh-nPK">
                                                         <modifierMask key="keyEquivalentModifierMask"/>
                                                     </menuItem>
