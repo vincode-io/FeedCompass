@@ -8,6 +8,9 @@ extension MacWebBrowser {
 	@discardableResult public class func openAsFeed(_ url: String) -> Bool {
 		
 		if let subscribeURL = AppDefaults.readerAddFeedURL {
+			guard subscribeURL.lowercased().starts(with: "http") else {
+				return false
+			}
 			guard let fullURL = URL(string: subscribeURL + url) else {
 				return false
 			}
