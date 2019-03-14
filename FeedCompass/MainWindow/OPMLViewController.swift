@@ -36,8 +36,16 @@ class OPMLViewController: NSViewController {
 	}()
 	
 	var currentlySelectedOPMLItem: RSOPMLItem? {
+		let selectedItems = currentlySelectedOPMLItems
+		if selectedItems.count == 1 {
+			return selectedItems[0]
+		}
+		return nil
+	}
+	
+	var currentlySelectedOPMLItems: [RSOPMLItem] {
 		let selectedRows = outlineView.selectedRowIndexes
-		return selectedRows.map({ outlineView.item(atRow: $0) as! RSOPMLItem }).first
+		return selectedRows.map({ outlineView.item(atRow: $0) as! RSOPMLItem })
 	}
 
 	override func viewDidLoad() {
@@ -148,32 +156,30 @@ extension OPMLViewController: NSOutlineViewDelegate {
 	func outlineView(_ outlineView: NSOutlineView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItems draggedItems: [Any]) {
 	}
 	
-	func outlineView(_ outlineView: NSOutlineView, writeItems items: [Any], to pasteboard: NSPasteboard) -> Bool {
-		
-		guard items.count > 0 else {
-			return false
+	func outlineView(_ outlineView: NSOutlineView, pasteboardWriterForItem item: Any) -> NSPasteboardWriting? {
+		guard let opmlItem = item as? RSOPMLItem, let feedURL = opmlItem.feedSpecifier?.feedURL else {
+			return nil
 		}
-		
-		let opml = items[0] as! RSOPMLItem
-		
-		guard let feedURL = opml.feedSpecifier?.feedURL else {
-			return false
-		}
-		
-		URLPasteboardWriter.write(urlString: feedURL, to: pasteboard)
-		return true
-		
+		return URLPasteboardWriter(urlString: feedURL)
 	}
 	
 	func outlineViewSelectionDidChange(_ notification: Notification) {
 		
-		guard let opmlItem = currentlySelectedOPMLItem else {
+		let opmlItems = currentlySelectedOPMLItems
+		
+		if opmlItems.count < 1 {
 			let noneSelected = NSLocalizedString("None Selected", comment: "No RSS Feed was selected")
 			splitViewController.showRSSMessage(noneSelected)
 			return
 		}
 		
-		guard let urlString = opmlItem.feedSpecifier?.feedURL, let url = URL(string: urlString) else {
+		if opmlItems.count > 1 {
+			let noneSelected = NSLocalizedString("Multiple Selected", comment: "Multiple RSS Feeds selected")
+			splitViewController.showRSSMessage(noneSelected)
+			return
+		}
+		
+		guard let urlString = opmlItems[0].feedSpecifier?.feedURL, let url = URL(string: urlString) else {
 			let invalidURL = NSLocalizedString("Invalid Feed URL", comment: "RRS Feed URL was invalid")
 			splitViewController.showRSSMessage(invalidURL)
 			return
