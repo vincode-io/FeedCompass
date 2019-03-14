@@ -4,14 +4,20 @@
 
 Feed Compass is a macOS application that makes it easier to find and subscribe
 to RSS Feeds in your favorite RSS Reader.  It is a companion app to an RSS
-Reader so you will need one of those to make Feed Compass usable.
+Reader so you will want one of those to get the most from Feed Compass.
 
 There are lots of Mac RSS Readers available in the Mac App Store.  If you are
 looking for a good, free RSS Reader we recommend 
 [NetNewsWire](https://ranchero.com/netnewswire/).
 
-It is currently in development, but is usable right now.  You can download it
-here: [Feed Compass Download](http://vincode.io/Feed%20Compass.app.zip)
+## Features
+
+- A large number of default feeds (especially Apple developer feeds)
+- Preview feeds before you subscribe
+- One click subscribing to native RSS readers or web RSS readers
+- Drag-and-drop feeds to native RSS readers (that support it)
+- Open local OPML files
+- Subscribe to OPML files found on the web
 
 ## Feedback
 
