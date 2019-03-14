@@ -46,6 +46,7 @@ class OPMLViewController: NSViewController {
 		
 		outlineView.delegate = self
 		outlineView.dataSource = self
+		outlineView.setDraggingSourceOperationMask(.copy, forLocal: false)
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(opmlDidDownload(_:)), name: .OPMLDidDownload, object: nil)
 
@@ -142,6 +143,26 @@ extension OPMLViewController: NSOutlineViewDelegate {
 	func outlineView(_ outlineView: NSOutlineView, shouldSelectItem item: Any) -> Bool {
 		let opml = item as! RSOPMLItem
 		return opml.children?.count ?? 0 < 1
+	}
+
+	func outlineView(_ outlineView: NSOutlineView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItems draggedItems: [Any]) {
+	}
+	
+	func outlineView(_ outlineView: NSOutlineView, writeItems items: [Any], to pasteboard: NSPasteboard) -> Bool {
+		
+		guard items.count > 0 else {
+			return false
+		}
+		
+		let opml = items[0] as! RSOPMLItem
+		
+		guard let feedURL = opml.feedSpecifier?.feedURL else {
+			return false
+		}
+		
+		URLPasteboardWriter.write(urlString: feedURL, to: pasteboard)
+		return true
+		
 	}
 	
 	func outlineViewSelectionDidChange(_ notification: Notification) {
