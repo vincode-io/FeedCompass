@@ -201,14 +201,14 @@ extension OPMLViewController: NSOutlineViewDelegate {
 		if let cell = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "OPMLTableViewCell"), owner: nil) as? NSTableCellView {
 			if let opmlDoc = item as? RSOPMLDocument {
 				cell.imageView?.image = folderImage
-				cell.textField?.stringValue = opmlDoc.title ?? "N/A"
+				cell.textField?.stringValue = titleOrUntitled(opmlDoc.title)
 			} else if let opmlItem = item as? RSOPMLItem {
 				if opmlItem.children?.count ?? 0 > 0 {
 					cell.imageView?.image = folderImage
 				} else {
 					cell.imageView?.image = faviconImage
 				}
- 				cell.textField?.stringValue = opmlItem.titleFromAttributes ?? "N/A"
+ 				cell.textField?.stringValue = titleOrUntitled(opmlItem.titleFromAttributes)
 			}
 			return cell
 		}
@@ -393,6 +393,13 @@ private extension OPMLViewController {
 		item.representedObject = representedObject
 		item.target = self
 		return item
+	}
+	
+	func titleOrUntitled(_ title: String?) -> String {
+		if title == nil || title?.count ?? 0 < 1 {
+			return NSLocalizedString("(Untitled)", comment: "Untitled entity")
+		}
+		return title!
 	}
 
 }
