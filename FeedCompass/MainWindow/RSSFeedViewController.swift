@@ -68,6 +68,10 @@ extension RSSFeedViewController: NSTableViewDelegate {
 		return formatter
 	}()
 	
+	func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
+		return false
+	}
+	
 	func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
 
 		if let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "RSSTableViewCell"), owner: nil) as? RSSTableCellView {
