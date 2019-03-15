@@ -45,7 +45,7 @@ class OPMLViewController: NSViewController, NSUserInterfaceValidations {
 		outlineView.dataSource = self
 		outlineView.setDraggingSourceOperationMask(.copy, forLocal: false)
 		
-		NotificationCenter.default.addObserver(self, selector: #selector(opmlDidDownload(_:)), name: .OPMLDidDownload, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(opmlDidDownload(_:)), name: .OPMLDidLoad, object: nil)
 
 		OPMLDownloader.shared.load()
 		

@@ -5,7 +5,7 @@ import RSParser
 import RSWeb
 
 public extension Notification.Name {
-	static let OPMLDidDownload = Notification.Name(rawValue: "OPMLDidDownloadOPML")
+	static let OPMLDidLoad = Notification.Name(rawValue: "OPMLDidLoad")
 }
 
 final class OPMLDownloader {
@@ -54,6 +54,23 @@ final class OPMLDownloader {
 		downloadSession.downloadObjects(Set([opmlLocation]) as NSSet)
 	}
 	
+	func loadLocal(url: URL) {
+		
+		guard let data = try? Data(contentsOf: url) else {
+			return
+		}
+		
+		let parserData = ParserData(url: url.absoluteString, data: data)
+		if let opmlDocument = try? RSOPMLParser.parseOPML(with: parserData) {
+			
+			var userInfo = [String: Any]()
+			userInfo[OPMLDownloader.UserInfoKey.opmlDocument] = opmlDocument
+			NotificationCenter.default.post(name: .OPMLDidLoad, object: self, userInfo: userInfo)
+			
+		}
+
+	}
+	
 }
 
 // MARK: - DownloadSessionDelegate
@@ -93,7 +110,7 @@ extension OPMLDownloader: DownloadSessionDelegate {
 			
 			var userInfo = [String: Any]()
 			userInfo[OPMLDownloader.UserInfoKey.opmlDocument] = opmlDocument
-			NotificationCenter.default.post(name: .OPMLDidDownload, object: self, userInfo: userInfo)
+			NotificationCenter.default.post(name: .OPMLDidLoad, object: self, userInfo: userInfo)
 			
 		}
 

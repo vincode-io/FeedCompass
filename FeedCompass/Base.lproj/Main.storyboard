@@ -64,7 +64,11 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="File" id="wl5-NZ-tPD">
                                     <items>
-                                        <menuItem title="Open" keyEquivalent="o" id="A4u-Cr-Nly"/>
+                                        <menuItem title="Open" keyEquivalent="o" id="A4u-Cr-Nly">
+                                            <connections>
+                                                <action selector="openOPML:" target="Ady-hI-5gd" id="Q4L-Ml-0xm"/>
+                                            </connections>
+                                        </menuItem>
                                         <menuItem title="Subscribe to OPML" keyEquivalent="O" id="MQo-wf-xcN">
                                             <connections>
                                                 <action selector="subscribeToOPML:" target="Ady-hI-5gd" id="LCN-WD-dQD"/>
