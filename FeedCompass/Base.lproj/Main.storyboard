@@ -64,10 +64,12 @@
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="File" id="wl5-NZ-tPD">
                                     <items>
-                                        <menuItem title="Open" id="A4u-Cr-Nly">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                        <menuItem title="Open" keyEquivalent="o" id="A4u-Cr-Nly"/>
+                                        <menuItem title="Subscribe to OPML" keyEquivalent="O" id="MQo-wf-xcN">
+                                            <connections>
+                                                <action selector="subscribeToOPML:" target="Ady-hI-5gd" id="LCN-WD-dQD"/>
+                                            </connections>
                                         </menuItem>
-                                        <menuItem title="Subscribe to OPML" keyEquivalent="s" id="MQo-wf-xcN"/>
                                     </items>
                                 </menu>
                             </menuItem>
@@ -107,6 +109,9 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem title="Delete" id="ClT-Kj-fBy">
+                                            <string key="keyEquivalent" base64-UTF8="YES">
+CA
+</string>
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="delete:" target="Ady-hI-5gd" id="2eI-1u-04a"/>
@@ -387,7 +392,7 @@
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
-                                            <action selector="subscribe:" target="B8D-0N-5wS" id="dWw-eq-vLX"/>
+                                            <action selector="subscribe:" target="Oky-zY-oP4" id="mI9-6q-D3x"/>
                                         </connections>
                                     </button>
                                 </toolbarItem>

@@ -31,6 +31,9 @@
 		516037C722355AFB00172C8D /* OPMLDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516037C122355AFB00172C8D /* OPMLDownloader.swift */; };
 		516037C822355AFB00172C8D /* RSSTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516037C222355AFB00172C8D /* RSSTableCellView.swift */; };
 		518C649E223AF8D600B18604 /* OPML.plist in Resources */ = {isa = PBXBuildFile; fileRef = 518C649D223AF8D600B18604 /* OPML.plist */; };
+		518C64A1223C06DE00B18604 /* SubscribeToOPML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518C649F223C06DE00B18604 /* SubscribeToOPML.swift */; };
+		518C64A2223C06DE00B18604 /* SubscribeToOPML.xib in Resources */ = {isa = PBXBuildFile; fileRef = 518C64A0223C06DE00B18604 /* SubscribeToOPML.xib */; };
+		518C64A4223C3B0E00B18604 /* RSOPMLDocument+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518C64A3223C3B0E00B18604 /* RSOPMLDocument+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +157,9 @@
 		516037C122355AFB00172C8D /* OPMLDownloader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPMLDownloader.swift; sourceTree = "<group>"; };
 		516037C222355AFB00172C8D /* RSSTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSTableCellView.swift; sourceTree = "<group>"; };
 		518C649D223AF8D600B18604 /* OPML.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = OPML.plist; sourceTree = "<group>"; };
+		518C649F223C06DE00B18604 /* SubscribeToOPML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeToOPML.swift; sourceTree = "<group>"; };
+		518C64A0223C06DE00B18604 /* SubscribeToOPML.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubscribeToOPML.xib; sourceTree = "<group>"; };
+		518C64A3223C3B0E00B18604 /* RSOPMLDocument+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RSOPMLDocument+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +187,8 @@
 				512EA95722382177008C9D51 /* RSSMessageViewController.swift */,
 				516037BE22355AFB00172C8D /* RSSFeedViewController.swift */,
 				516037C222355AFB00172C8D /* RSSTableCellView.swift */,
+				518C649F223C06DE00B18604 /* SubscribeToOPML.swift */,
+				518C64A0223C06DE00B18604 /* SubscribeToOPML.xib */,
 			);
 			path = MainWindow;
 			sourceTree = "<group>";
@@ -190,6 +198,7 @@
 			children = (
 				511DB581223866E600CECD86 /* MacWebBrowser+.swift */,
 				512EA95522382008008C9D51 /* NSStoryboard+.swift */,
+				518C64A3223C3B0E00B18604 /* RSOPMLDocument+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -410,6 +419,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				516037842235581700172C8D /* Assets.xcassets in Resources */,
+				518C64A2223C06DE00B18604 /* SubscribeToOPML.xib in Resources */,
 				512EA9372235BA5E008C9D51 /* Credits.rtf in Resources */,
 				516037872235581700172C8D /* Main.storyboard in Resources */,
 				511DB58C2239A6ED00CECD86 /* Preferences.storyboard in Resources */,
@@ -429,8 +439,10 @@
 				516037C722355AFB00172C8D /* OPMLDownloader.swift in Sources */,
 				516037C322355AFB00172C8D /* OPMLViewController.swift in Sources */,
 				512EA95622382008008C9D51 /* NSStoryboard+.swift in Sources */,
+				518C64A1223C06DE00B18604 /* SubscribeToOPML.swift in Sources */,
 				512EA95822382177008C9D51 /* RSSMessageViewController.swift in Sources */,
 				516037C422355AFB00172C8D /* RSSFeedViewController.swift in Sources */,
+				518C64A4223C3B0E00B18604 /* RSOPMLDocument+.swift in Sources */,
 				511DB5902239B45900CECD86 /* AppDefaults.swift in Sources */,
 				511DB58E2239AF3100CECD86 /* PreferencesViewController.swift in Sources */,
 				516037C822355AFB00172C8D /* RSSTableCellView.swift in Sources */,

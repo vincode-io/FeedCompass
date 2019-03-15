@@ -10,13 +10,16 @@ public extension Notification.Name {
 
 final class OPMLDownloader {
 	
-	public struct UserInfoKey {
+	static var shared = { OPMLDownloader() }()
+	
+	struct UserInfoKey {
 		public static let opmlDocument = "opmlDocument" // OPMLDidDownload
 	}
 
 	private struct OPMLLocation: Hashable {
-		let title: String
+		let title: String?
 		let url: String
+		let userDefined: Bool
 	}
 
 	private lazy var downloadSession: DownloadSession = {
@@ -27,17 +30,28 @@ final class OPMLDownloader {
 		return downloadSession.progress
 	}
 	
-	public func load() {
+	func load() {
 		
 		let plist = Bundle.main.path(forResource: "OPML", ofType: "plist")!
 		let opml = NSArray(contentsOfFile: plist)! as! [[String: Any]]
 		
-		let opmlLocations = opml.compactMap( { dict in
-			return OPMLLocation(title: dict["title"] as! String, url: dict["url"] as! String)
+		var opmlLocations = opml.compactMap( { dict in
+			return OPMLLocation(title: dict["title"] as? String, url: dict["url"] as! String, userDefined: false)
 		} )
+		
+		if let userURLs = AppDefaults.userSubscriptions {
+			for userURL in userURLs {
+				opmlLocations.append(OPMLLocation(title: nil, url: userURL, userDefined: true))
+			}
+		}
 		
 		downloadSession.downloadObjects(Set(opmlLocations) as NSSet)
 		
+	}
+	
+	func loadUserDefined(url: String) {
+		let opmlLocation = OPMLLocation(title: nil, url: url, userDefined: true)
+		downloadSession.downloadObjects(Set([opmlLocation]) as NSSet)
 	}
 	
 }
@@ -73,7 +87,9 @@ extension OPMLDownloader: DownloadSessionDelegate {
 		let parserData = ParserData(url: opmlLocation.url, data: data)
 		if let opmlDocument = try? RSOPMLParser.parseOPML(with: parserData) {
 			
-			opmlDocument.title = opmlLocation.title
+			if opmlLocation.title != nil {
+				opmlDocument.title = opmlLocation.title
+			}
 			
 			var userInfo = [String: Any]()
 			userInfo[OPMLDownloader.UserInfoKey.opmlDocument] = opmlDocument
@@ -88,7 +104,7 @@ extension OPMLDownloader: DownloadSessionDelegate {
 	}
 	
 	func downloadSession(_ downloadSession: DownloadSession, didReceiveUnexpectedResponse response: URLResponse, representedObject: AnyObject) {
-		
+
 	}
 	
 	func downloadSession(_ downloadSession: DownloadSession, didReceiveNotModifiedResponse: URLResponse, representedObject: AnyObject) {

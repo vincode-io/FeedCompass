@@ -5,7 +5,7 @@ import RSCore
 import RSParser
 import RSWeb
 
-class OPMLViewController: NSViewController {
+class OPMLViewController: NSViewController, NSUserInterfaceValidations {
 	
 	@IBOutlet weak var outlineView: NSOutlineView!
 	
@@ -13,7 +13,6 @@ class OPMLViewController: NSViewController {
 		return self.parent as! SplitViewController
 	}
 	
-	private let opmlDownloader = OPMLDownloader()
 	private var opmls = [RSOPMLDocument]()
 	
 	private let folderImage: NSImage? = {
@@ -37,7 +36,7 @@ class OPMLViewController: NSViewController {
 		let selectedRows = outlineView.selectedRowIndexes
 		return selectedRows.map({ outlineView.item(atRow: $0) as! RSOPMLItem })
 	}
-
+	
 	override func viewDidLoad() {
 		
 		super.viewDidLoad()
@@ -48,9 +47,59 @@ class OPMLViewController: NSViewController {
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(opmlDidDownload(_:)), name: .OPMLDidDownload, object: nil)
 
-		opmlDownloader.load()
+		OPMLDownloader.shared.load()
 		
 	}
+	
+	public func validateUserInterfaceItem(_ item: NSValidatedUserInterfaceItem) -> Bool {
+		
+		if item.action == #selector(delete(_:)) {
+			for currentItem in currentlySelectedOPMLItems {
+				if let currentDoc = currentItem as? RSOPMLDocument {
+					if !(AppDefaults.userSubscriptions?.contains(currentDoc.url) ?? false) {
+						return false
+					}
+				} else {
+					return false
+				}
+			}
+			return true
+		}
+		
+		if item.action == #selector(subscribe(_:)) {
+			if currentlySelectedOPMLItem?.feedSpecifier?.feedURL != nil {
+				return true
+			}
+		}
+		
+		if item.action == #selector(copyURL(_:)) {
+			if currentlySelectedOPMLItem?.feedSpecifier?.feedURL != nil {
+				return true
+			}
+		}
+		
+		if item.action == #selector(openHomePage(_:)) {
+			if currentlySelectedOPMLItem?.feedSpecifier?.homePageURL != nil {
+				return true
+			}
+		}
+		
+		if item.action == #selector(subscribeFromContextualMenu(_:)) {
+			return true
+		}
+		
+		if item.action == #selector(copyURLFromContextualMenu(_:)) {
+			return true
+		}
+		
+		if item.action == #selector(openURLFromContextualMenu(_:)) {
+			return true
+		}
+		
+		return false
+		
+	}
+
 	
 	// MARK: - Notifications
 	
@@ -64,6 +113,49 @@ class OPMLViewController: NSViewController {
 		opmls.sort(by: { return $0.title.caseInsensitiveCompare($1.title) == .orderedAscending })
 		outlineView.reloadData()
 	}
+	
+	// MARK: Actions
+	
+	@IBAction func delete(_ sender: AnyObject?) {
+
+		for currentItem in currentlySelectedOPMLItems {
+			
+			if let currentDoc = currentItem as? RSOPMLDocument {
+				
+				let indexSet = IndexSet(integer: outlineView.childIndex(forItem: currentDoc))
+				outlineView.removeItems(at: indexSet, inParent: nil, withAnimation: .effectFade)
+				
+				var subs = AppDefaults.userSubscriptions
+				subs?.remove(currentDoc.url)
+				AppDefaults.userSubscriptions = subs
+				
+			}
+			
+		}
+		
+	}
+	
+	@IBAction func subscribe(_ sender: Any?) {
+		guard let feedURL = currentlySelectedOPMLItem?.feedSpecifier?.feedURL else {
+			return
+		}
+		MacWebBrowser.openAsFeed(feedURL)
+	}
+	
+	@IBAction func copyURL(_ sender: Any?) {
+		guard let feedURL = currentlySelectedOPMLItem?.feedSpecifier?.feedURL else {
+			return
+		}
+		URLPasteboardWriter.write(urlString: feedURL, to: NSPasteboard.general)
+	}
+	
+	@IBAction func openHomePage(_ sender: Any?) {
+		guard let siteURL = currentlySelectedOPMLItem?.feedSpecifier?.homePageURL, let url = URL(string: siteURL) else {
+			return
+		}
+		MacWebBrowser.openURL(url, inBackground: false)
+	}
+	
 
 }
 
@@ -139,8 +231,7 @@ extension OPMLViewController: NSOutlineViewDelegate {
 	}
 	
 	func outlineView(_ outlineView: NSOutlineView, shouldSelectItem item: Any) -> Bool {
-		let opml = item as! RSOPMLItem
-		return opml.children?.count ?? 0 < 1
+		return true
 	}
 
 	func outlineView(_ outlineView: NSOutlineView, draggingSession session: NSDraggingSession, willBeginAt screenPoint: NSPoint, forItems draggedItems: [Any]) {
@@ -157,18 +248,27 @@ extension OPMLViewController: NSOutlineViewDelegate {
 		
 		let opmlItems = currentlySelectedOPMLItems
 		
+		// Is nothing selected?
 		if opmlItems.count < 1 {
 			let noneSelected = NSLocalizedString("None Selected", comment: "No RSS Feed was selected")
 			splitViewController.showRSSMessage(noneSelected)
 			return
 		}
 		
+		// Did they select multiple items?
 		if opmlItems.count > 1 {
 			let noneSelected = NSLocalizedString("Multiple Selected", comment: "Multiple RSS Feeds selected")
 			splitViewController.showRSSMessage(noneSelected)
 			return
 		}
 		
+		// Did they select a single folder?
+		if opmlItems.count == 1 && opmlItems[0].children?.count ?? 0 > 0 {
+			splitViewController.showRSSMessage("")
+			return
+		}
+		
+		// Is the opml file dorked?
 		guard let urlString = opmlItems[0].feedSpecifier?.feedURL, let url = URL(string: urlString) else {
 			let invalidURL = NSLocalizedString("Invalid Feed URL", comment: "RRS Feed URL was invalid")
 			splitViewController.showRSSMessage(invalidURL)
