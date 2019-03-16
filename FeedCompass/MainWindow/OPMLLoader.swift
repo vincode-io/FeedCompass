@@ -6,6 +6,7 @@ import RSWeb
 
 public extension Notification.Name {
 	static let OPMLDidLoad = Notification.Name(rawValue: "OPMLDidLoad")
+	static let UserDidAddOPML = Notification.Name(rawValue: "UserDidAddOPML")
 }
 
 final class OPMLLoader {
@@ -65,8 +66,8 @@ final class OPMLLoader {
 			
 			var userInfo = [String: Any]()
 			userInfo[OPMLLoader.UserInfoKey.opmlDocument] = opmlDocument
-			NotificationCenter.default.post(name: .OPMLDidLoad, object: self, userInfo: userInfo)
-			
+			NotificationCenter.default.post(name: .UserDidAddOPML, object: self, userInfo: userInfo)
+
 		}
 
 	}

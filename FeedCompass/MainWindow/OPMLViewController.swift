@@ -46,6 +46,7 @@ class OPMLViewController: NSViewController, NSUserInterfaceValidations {
 		outlineView.setDraggingSourceOperationMask(.copy, forLocal: false)
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(opmlDidDownload(_:)), name: .OPMLDidLoad, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(userDidAddOPML(_:)), name: .UserDidAddOPML, object: nil)
 
 		OPMLLoader.shared.load()
 		
@@ -104,14 +105,18 @@ class OPMLViewController: NSViewController, NSUserInterfaceValidations {
 	// MARK: - Notifications
 	
 	@objc func opmlDidDownload(_ note: Notification) {
-		
 		guard let opmlDocument = note.userInfo?[OPMLLoader.UserInfoKey.opmlDocument] as? RSOPMLDocument else {
 			return
 		}
-		
-		opmls.append(opmlDocument)
-		opmls.sort(by: { return $0.title.caseInsensitiveCompare($1.title) == .orderedAscending })
-		outlineView.reloadData()
+		addOPML(opmlDocument)
+	}
+	
+	@objc func userDidAddOPML(_ note: Notification) {
+		guard let opmlDocument = note.userInfo?[OPMLLoader.UserInfoKey.opmlDocument] as? RSOPMLDocument else {
+			return
+		}
+		addOPML(opmlDocument)
+		scrollAndSelectOPML(opmlDocument)
 	}
 	
 	// MARK: Actions
@@ -352,6 +357,20 @@ private extension OPMLViewController {
 		
 	}
 
+	func addOPML(_ opmlDocument: RSOPMLDocument) {
+		opmls.append(opmlDocument)
+		opmls.sort(by: { return $0.title.caseInsensitiveCompare($1.title) == .orderedAscending })
+		outlineView.reloadData()
+	}
+	
+	func scrollAndSelectOPML(_ opmlDocument: RSOPMLDocument) {
+		let rowIndex = outlineView.childIndex(forItem: opmlDocument)
+		let indexSet = IndexSet(integer: rowIndex)
+		outlineView.selectRowIndexes(indexSet, byExtendingSelection: false)
+		outlineView.scrollRowToVisible(rowIndex)
+		outlineView.expandItem(opmlDocument)
+	}
+	
 	func contextualMenuForClickedRow() -> NSMenu? {
 		
 		let row = outlineView.clickedRow
