@@ -10,6 +10,13 @@ There are lots of Mac RSS Readers available in the Mac App Store.  If you are
 looking for a good, free RSS Reader we recommend 
 [NetNewsWire](https://ranchero.com/netnewswire/).
 
+## Download
+
+You can download the current version of Feed Compass [here](https://github.com/vincode-io/FeedCompass/releases/download/0.5/Feed.Compass.app.zip).  It has all the features
+listed below and no known bugs.  Please report any bugs you find in 
+[Issues](https://github.com/vincode-io/FeedCompass/issues).
+
+
 ## Features
 
 - A large number of default feeds (especially Apple developer feeds)
