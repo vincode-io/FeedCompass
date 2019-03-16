@@ -35,7 +35,7 @@ class SubscribeToOPML: NSWindowController {
 			AppDefaults.userSubscriptions = Set([urlTextField.stringValue])
 		}
 		
-		OPMLDownloader.shared.loadUserDefined(url: urlTextField.stringValue)
+		OPMLLoader.shared.loadUserDefined(url: urlTextField.stringValue)
 		
 	}
 

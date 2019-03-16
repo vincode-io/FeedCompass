@@ -8,9 +8,9 @@ public extension Notification.Name {
 	static let OPMLDidLoad = Notification.Name(rawValue: "OPMLDidLoad")
 }
 
-final class OPMLDownloader {
+final class OPMLLoader {
 	
-	static var shared = { OPMLDownloader() }()
+	static var shared = { OPMLLoader() }()
 	
 	struct UserInfoKey {
 		public static let opmlDocument = "opmlDocument" // OPMLDidDownload
@@ -64,7 +64,7 @@ final class OPMLDownloader {
 		if let opmlDocument = try? RSOPMLParser.parseOPML(with: parserData) {
 			
 			var userInfo = [String: Any]()
-			userInfo[OPMLDownloader.UserInfoKey.opmlDocument] = opmlDocument
+			userInfo[OPMLLoader.UserInfoKey.opmlDocument] = opmlDocument
 			NotificationCenter.default.post(name: .OPMLDidLoad, object: self, userInfo: userInfo)
 			
 		}
@@ -75,7 +75,7 @@ final class OPMLDownloader {
 
 // MARK: - DownloadSessionDelegate
 
-extension OPMLDownloader: DownloadSessionDelegate {
+extension OPMLLoader: DownloadSessionDelegate {
 	
 	func downloadSession(_ downloadSession: DownloadSession, requestForRepresentedObject representedObject: AnyObject) -> URLRequest? {
 		
@@ -109,7 +109,7 @@ extension OPMLDownloader: DownloadSessionDelegate {
 			}
 			
 			var userInfo = [String: Any]()
-			userInfo[OPMLDownloader.UserInfoKey.opmlDocument] = opmlDocument
+			userInfo[OPMLLoader.UserInfoKey.opmlDocument] = opmlDocument
 			NotificationCenter.default.post(name: .OPMLDidLoad, object: self, userInfo: userInfo)
 			
 		}

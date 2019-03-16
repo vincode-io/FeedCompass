@@ -47,7 +47,7 @@ class OPMLViewController: NSViewController, NSUserInterfaceValidations {
 		
 		NotificationCenter.default.addObserver(self, selector: #selector(opmlDidDownload(_:)), name: .OPMLDidLoad, object: nil)
 
-		OPMLDownloader.shared.load()
+		OPMLLoader.shared.load()
 		
 	}
 	
@@ -105,7 +105,7 @@ class OPMLViewController: NSViewController, NSUserInterfaceValidations {
 	
 	@objc func opmlDidDownload(_ note: Notification) {
 		
-		guard let opmlDocument = note.userInfo?[OPMLDownloader.UserInfoKey.opmlDocument] as? RSOPMLDocument else {
+		guard let opmlDocument = note.userInfo?[OPMLLoader.UserInfoKey.opmlDocument] as? RSOPMLDocument else {
 			return
 		}
 		

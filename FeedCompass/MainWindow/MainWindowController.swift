@@ -30,7 +30,7 @@ class MainWindowController: NSWindowController {
 		
 		panel.beginSheetModal(for: window!) { result in
 			if result == NSApplication.ModalResponse.OK, let url = panel.url {
-				OPMLDownloader.shared.loadLocal(url: url)
+				OPMLLoader.shared.loadLocal(url: url)
 			}
 		}
 		
