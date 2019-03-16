@@ -1,6 +1,6 @@
 //Copyright © 2019 Vincode, Inc. All rights reserved.
 
-import Foundation
+import AppKit
 import RSParser
 import RSWeb
 
@@ -51,8 +51,10 @@ final class OPMLLoader {
 	}
 	
 	func loadUserDefined(url: String) {
-		let opmlLocation = OPMLLocation(title: nil, url: url, userDefined: true)
-		downloadSession.downloadObjects(Set([opmlLocation]) as NSSet)
+		guard let downloadURL = URL(string: url) else {
+			return
+		}
+		download(downloadURL, downloadCallback)
 	}
 	
 	func loadLocal(url: URL) {
@@ -70,6 +72,28 @@ final class OPMLLoader {
 
 		}
 
+	}
+	
+}
+
+// MARK: OneShotDownloadManager Callback
+func downloadCallback(data: Data?, response: URLResponse?, error: Error?) {
+	
+	guard let url = response?.url?.absoluteString, let data = data else {
+		let error = NSLocalizedString("OPML Not Found", comment: "OPML Not Found")
+		NSApplication.shared.presentError(error)
+		return
+	}
+	
+	let parserData = ParserData(url: url, data: data)
+	if let opmlDocument = try? RSOPMLParser.parseOPML(with: parserData) {
+		var userInfo = [String: Any]()
+		userInfo[OPMLLoader.UserInfoKey.opmlDocument] = opmlDocument
+		NotificationCenter.default.post(name: .UserDidAddOPML, object: nil, userInfo: userInfo)
+	} else {
+		let error = NSLocalizedString("Invalid OPML Format", comment: "Invalid OPML Format")
+		NSApplication.shared.presentError(error)
+		return
 	}
 	
 }
