@@ -29,10 +29,20 @@ class SubscribeToOPML: NSWindowController {
 	private func download() {
 		
 		if var userURLs = AppDefaults.userSubscriptions {
+			
+			if userURLs.contains(urlTextField.stringValue) {
+				let error = NSLocalizedString("Already subscribed to that URL", comment: "Already subscribed to that URL")
+				window!.presentError(error)
+				return
+			}
+			
 			userURLs.insert(urlTextField.stringValue)
 			AppDefaults.userSubscriptions = userURLs
+			
 		} else {
+			
 			AppDefaults.userSubscriptions = Set([urlTextField.stringValue])
+			
 		}
 		
 		OPMLLoader.shared.loadUserDefined(url: urlTextField.stringValue)

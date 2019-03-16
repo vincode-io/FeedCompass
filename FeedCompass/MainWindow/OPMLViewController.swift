@@ -127,6 +127,10 @@ class OPMLViewController: NSViewController, NSUserInterfaceValidations {
 			
 			if let currentDoc = currentItem as? RSOPMLDocument {
 				
+				if let index = opmls.firstIndex(of: currentDoc) {
+					opmls.remove(at: index)
+				}
+				
 				let indexSet = IndexSet(integer: outlineView.childIndex(forItem: currentDoc))
 				outlineView.removeItems(at: indexSet, inParent: nil, withAnimation: .effectFade)
 				
