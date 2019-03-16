@@ -16,6 +16,10 @@ class MainWindowController: NSWindowController {
 		return splitViewController.splitViewItems[0].viewController as! OPMLViewController
 	}
 
+	override func windowDidLoad() {
+		self.windowFrameAutosaveName = "MainWindow"
+	}
+	
 	@IBAction func openOPML(_ sender: Any?) {
 		
 		let panel = NSOpenPanel()
