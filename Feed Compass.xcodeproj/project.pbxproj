@@ -288,6 +288,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5160378C2235581700172C8D /* Build configuration list for PBXNativeTarget "Feed Compass" */;
 			buildPhases = (
+				518C64A7223D75C500B18604 /* ShellScript */,
 				516037782235581600172C8D /* Sources */,
 				516037792235581600172C8D /* Frameworks */,
 				5160377A2235581600172C8D /* Resources */,
@@ -431,6 +432,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		518C64A7223D75C500B18604 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "buildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"${PROJECT_DIR}/${INFOPLIST_FILE}\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		516037782235581600172C8D /* Sources */ = {
