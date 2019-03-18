@@ -4,6 +4,12 @@
 <array>
 	<dict>
 		<key>title</key>
+		<string>Engineering Blogs</string>
+		<key>url</key>
+		<string>https://raw.githubusercontent.com/kilimchoi/engineering-blogs/master/engineering_blogs.opml</string>
+	</dict>
+	<dict>
+		<key>title</key>
 		<string>feedBase - Hotlist</string>
 		<key>url</key>
 		<string>http://opml.feedbase.io/hotlist.opml</string>
