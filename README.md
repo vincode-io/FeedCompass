@@ -12,7 +12,7 @@ looking for a good, free RSS Reader we recommend
 
 ## Download
 
-You can download the current version of Feed Compass [here](https://github.com/vincode-io/FeedCompass/releases/download/0.5/Feed.Compass.app.zip).  It has all the features
+You can download the current version (0.6) of Feed Compass [here](https://github.com/vincode-io/FeedCompass/releases/download/0.6/Feed.Compass.app.zip).  It has all the features
 listed below and no known bugs.  Please report any bugs you find in 
 [Issues](https://github.com/vincode-io/FeedCompass/issues).
 
