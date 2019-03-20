@@ -350,7 +350,8 @@ private extension OPMLViewController {
 		}
 		
 		let parserData = ParserData(url: url, data: data)
-		if let parsedFeed = RSSParser.parse(parserData) {
+		// Got to double unwrap until Swift 5
+		if let tempFeed = try? FeedParser.parse(parserData), let parsedFeed = tempFeed {
 			if parsedFeed.items.count > 0 {
 				splitViewController.showRSSFeed(parsedFeed)
 			} else {
