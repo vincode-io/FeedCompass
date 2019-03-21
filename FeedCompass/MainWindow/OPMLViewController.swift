@@ -369,10 +369,8 @@ private extension OPMLViewController {
 	}
 	
 	func scrollAndSelectOPML(_ opmlDocument: RSOPMLDocument) {
-		let rowIndex = outlineView.childIndex(forItem: opmlDocument)
-		let indexSet = IndexSet(integer: rowIndex)
-		outlineView.selectRowIndexes(indexSet, byExtendingSelection: false)
-		outlineView.scrollRowToVisible(rowIndex)
+		let rowIndex = outlineView.row(forItem: opmlDocument)
+		outlineView.rs_selectRowAndScrollToVisible(rowIndex)
 		outlineView.expandItem(opmlDocument)
 	}
 	
