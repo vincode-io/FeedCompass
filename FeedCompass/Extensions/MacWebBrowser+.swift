@@ -21,15 +21,9 @@ extension MacWebBrowser {
 		
 	}
 
-	private class func openLocalReader(_ url: String) -> Bool {
+	private class func openLocalReader(_ urlString: String) -> Bool {
 		
-		guard let index = url.firstIndex(of: ":") else {
-			return false
-		}
-		
-		let newFeedURL = "feed\(url.suffix(from: index))"
-		
-		guard let url = URL(string: newFeedURL) else {
+		guard let url = URL(string: "feed:\(urlString)") else {
 			return false
 		}
 		
