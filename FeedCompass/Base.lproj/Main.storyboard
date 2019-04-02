@@ -710,15 +710,15 @@ CA
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="19B-Vj-2h0">
-                                <rect key="frame" x="18" y="268" width="56" height="17"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Contact:" id="qUP-bK-9uY">
+                                <rect key="frame" x="18" y="268" width="73" height="17"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Contribute:" id="qUP-bK-9uY">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YKW-Uf-BrU">
-                                <rect key="frame" x="78" y="268" width="37" height="17"/>
+                                <rect key="frame" x="95" y="268" width="37" height="17"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="E58-o0-8yb">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -739,7 +739,8 @@ CA
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="contactLabel" destination="YKW-Uf-BrU" id="XYD-EG-WT1"/>
+                        <outlet property="contributeLabel" destination="19B-Vj-2h0" id="zAw-MI-Dhr"/>
+                        <outlet property="contributeURLLabel" destination="YKW-Uf-BrU" id="haf-su-nlA"/>
                         <outlet property="descriptionLabel" destination="upj-Pa-Li4" id="xvF-l8-Wwn"/>
                         <outlet property="titleLabel" destination="BZX-MT-qqR" id="bCr-P0-s5k"/>
                     </connections>

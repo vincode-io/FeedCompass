@@ -6,7 +6,8 @@ class RSSDirectoryViewController: NSViewController {
 	
 	@IBOutlet weak var titleLabel: NSTextField!
 	@IBOutlet weak var descriptionLabel: NSTextField!
-	@IBOutlet weak var contactLabel: NSTextField!
+	@IBOutlet weak var contributeLabel: NSTextField!
+	@IBOutlet weak var contributeURLLabel: NSTextField!
 	
 	var entry: OPMLDirectoryEntry?
 
@@ -17,18 +18,26 @@ class RSSDirectoryViewController: NSViewController {
 		titleLabel.stringValue = entry?.title ?? ""
 		descriptionLabel.stringValue = entry?.description ?? ""
 
-		let contactURL = entry?.contactURL ?? ""
-		let attrString = NSMutableAttributedString(string: contactURL)
-		let range = NSRange(location: 0, length: attrString.length)
+		if let contributeURL = entry?.contributeURL {
+			
+			let attrString = NSMutableAttributedString(string: contributeURL)
+			let range = NSRange(location: 0, length: attrString.length)
 		
-		attrString.beginEditing()
-		attrString.addAttribute(.link, value: contactURL, range: range)
-		attrString.addAttribute(.foregroundColor, value: NSColor.systemBlue, range: range)
-		attrString.endEditing()
+			attrString.beginEditing()
+			attrString.addAttribute(.link, value: contributeURL, range: range)
+			attrString.addAttribute(.foregroundColor, value: NSColor.systemBlue, range: range)
+			attrString.endEditing()
 		
-		contactLabel.allowsEditingTextAttributes = true
-		contactLabel.isSelectable = true
-		contactLabel.attributedStringValue = attrString
+			contributeURLLabel.allowsEditingTextAttributes = true
+			contributeURLLabel.isSelectable = true
+			contributeURLLabel.attributedStringValue = attrString
+			
+		} else {
+			
+			contributeLabel.isHidden = true
+			contributeURLLabel.isHidden = true
+			
+		}
 		
 	}
 	

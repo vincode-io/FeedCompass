@@ -49,7 +49,7 @@ final class OPMLLoader {
 			
 			if let userURLs = AppDefaults.userSubscriptions {
 				for userURL in userURLs {
-					entries.append(OPMLDirectoryEntry(title: nil, url: userURL, description: nil, contactURL: nil, userDefined: nil))
+					entries.append(OPMLDirectoryEntry(title: nil, url: userURL, description: nil, contributeURL: nil, userDefined: nil))
 				}
 			}
 
