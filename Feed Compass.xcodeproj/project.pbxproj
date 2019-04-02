@@ -16,6 +16,7 @@
 		512EA94F22371E42008C9D51 /* OPMLOutlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512EA94E22371E42008C9D51 /* OPMLOutlineView.swift */; };
 		512EA95622382008008C9D51 /* NSStoryboard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512EA95522382008008C9D51 /* NSStoryboard+.swift */; };
 		512EA95822382177008C9D51 /* RSSMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512EA95722382177008C9D51 /* RSSMessageViewController.swift */; };
+		5153383E225400040024544D /* OPMLDirectoryEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5153383D225400040024544D /* OPMLDirectoryEntry.swift */; };
 		516037802235581600172C8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5160377F2235581600172C8D /* AppDelegate.swift */; };
 		516037842235581700172C8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 516037832235581700172C8D /* Assets.xcassets */; };
 		516037872235581700172C8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 516037852235581700172C8D /* Main.storyboard */; };
@@ -30,7 +31,6 @@
 		516037C522355AFB00172C8D /* SplitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516037BF22355AFB00172C8D /* SplitViewController.swift */; };
 		516037C722355AFB00172C8D /* OPMLLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516037C122355AFB00172C8D /* OPMLLoader.swift */; };
 		516037C822355AFB00172C8D /* RSSTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 516037C222355AFB00172C8D /* RSSTableCellView.swift */; };
-		518C649E223AF8D600B18604 /* OPML.plist in Resources */ = {isa = PBXBuildFile; fileRef = 518C649D223AF8D600B18604 /* OPML.plist */; };
 		518C64A1223C06DE00B18604 /* SubscribeToOPML.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518C649F223C06DE00B18604 /* SubscribeToOPML.swift */; };
 		518C64A2223C06DE00B18604 /* SubscribeToOPML.xib in Resources */ = {isa = PBXBuildFile; fileRef = 518C64A0223C06DE00B18604 /* SubscribeToOPML.xib */; };
 		518C64A4223C3B0E00B18604 /* RSOPMLDocument+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 518C64A3223C3B0E00B18604 /* RSOPMLDocument+.swift */; };
@@ -143,6 +143,7 @@
 		512EA94E22371E42008C9D51 /* OPMLOutlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OPMLOutlineView.swift; sourceTree = "<group>"; };
 		512EA95522382008008C9D51 /* NSStoryboard+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSStoryboard+.swift"; sourceTree = "<group>"; };
 		512EA95722382177008C9D51 /* RSSMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSMessageViewController.swift; sourceTree = "<group>"; };
+		5153383D225400040024544D /* OPMLDirectoryEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OPMLDirectoryEntry.swift; sourceTree = "<group>"; };
 		5160377C2235581600172C8D /* Feed Compass.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Feed Compass.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5160377F2235581600172C8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		516037832235581700172C8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -157,7 +158,6 @@
 		516037BF22355AFB00172C8D /* SplitViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SplitViewController.swift; sourceTree = "<group>"; };
 		516037C122355AFB00172C8D /* OPMLLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OPMLLoader.swift; sourceTree = "<group>"; };
 		516037C222355AFB00172C8D /* RSSTableCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RSSTableCellView.swift; sourceTree = "<group>"; };
-		518C649D223AF8D600B18604 /* OPML.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = OPML.plist; sourceTree = "<group>"; };
 		518C649F223C06DE00B18604 /* SubscribeToOPML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeToOPML.swift; sourceTree = "<group>"; };
 		518C64A0223C06DE00B18604 /* SubscribeToOPML.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubscribeToOPML.xib; sourceTree = "<group>"; };
 		518C64A3223C3B0E00B18604 /* RSOPMLDocument+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RSOPMLDocument+.swift"; sourceTree = "<group>"; };
@@ -186,6 +186,7 @@
 				516037BD22355AFB00172C8D /* OPMLViewController.swift */,
 				512EA94E22371E42008C9D51 /* OPMLOutlineView.swift */,
 				516037C122355AFB00172C8D /* OPMLLoader.swift */,
+				5153383D225400040024544D /* OPMLDirectoryEntry.swift */,
 				512EA95722382177008C9D51 /* RSSMessageViewController.swift */,
 				516037BE22355AFB00172C8D /* RSSFeedViewController.swift */,
 				516037C222355AFB00172C8D /* RSSTableCellView.swift */,
@@ -247,7 +248,6 @@
 				516037882235581700172C8D /* Info.plist */,
 				516037892235581700172C8D /* FeedCompass.entitlements */,
 				512EA9362235BA5E008C9D51 /* Credits.rtf */,
-				518C649D223AF8D600B18604 /* OPML.plist */,
 			);
 			path = FeedCompass;
 			sourceTree = "<group>";
@@ -427,7 +427,6 @@
 				512EA9372235BA5E008C9D51 /* Credits.rtf in Resources */,
 				516037872235581700172C8D /* Main.storyboard in Resources */,
 				511DB58C2239A6ED00CECD86 /* Preferences.storyboard in Resources */,
-				518C649E223AF8D600B18604 /* OPML.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,6 +467,7 @@
 				516037C422355AFB00172C8D /* RSSFeedViewController.swift in Sources */,
 				518C64A4223C3B0E00B18604 /* RSOPMLDocument+.swift in Sources */,
 				511DB5902239B45900CECD86 /* AppDefaults.swift in Sources */,
+				5153383E225400040024544D /* OPMLDirectoryEntry.swift in Sources */,
 				518C64A6223D63D300B18604 /* String+.swift in Sources */,
 				511DB58E2239AF3100CECD86 /* PreferencesViewController.swift in Sources */,
 				516037C822355AFB00172C8D /* RSSTableCellView.swift in Sources */,

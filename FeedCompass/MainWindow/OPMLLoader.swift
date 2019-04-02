@@ -11,42 +11,51 @@ public extension Notification.Name {
 
 final class OPMLLoader {
 	
+	private static let opmlDirectoryURL = URL(string: "https://gist.githubusercontent.com/vincode-io/dec612f2da3270c94f2e0ca11f242753/raw/")!
+	private lazy var downloadSession: DownloadSession = {
+		return DownloadSession(delegate: self)
+	}()
+
 	static var shared = { OPMLLoader() }()
 	
 	struct UserInfoKey {
 		public static let opmlDocument = "opmlDocument" // OPMLDidDownload
 	}
 
-	private struct OPMLLocation: Hashable {
-		let title: String?
-		let url: String
-		let userDefined: Bool
-	}
-
-	private lazy var downloadSession: DownloadSession = {
-		return DownloadSession(delegate: self)
-	}()
+	var directoryEntries = [String : OPMLDirectoryEntry]()
 	
 	var progress: DownloadProgress {
 		return downloadSession.progress
 	}
 	
 	func load() {
-		
-		let plist = Bundle.main.path(forResource: "OPML", ofType: "plist")!
-		let opml = NSArray(contentsOfFile: plist)! as! [[String: Any]]
-		
-		var opmlLocations = opml.compactMap( { dict in
-			return OPMLLocation(title: dict["title"] as? String, url: dict["url"] as! String, userDefined: false)
-		} )
-		
-		if let userURLs = AppDefaults.userSubscriptions {
-			for userURL in userURLs {
-				opmlLocations.append(OPMLLocation(title: nil, url: userURL, userDefined: true))
+
+		download(OPMLLoader.opmlDirectoryURL) { [weak self] (data: Data?, response: URLResponse?, error: Error?) in
+			
+			guard let data = data else {
+				let error = NSLocalizedString("Unable to load OPML Directory", comment: "Unable to load OPML Directory")
+				NSApplication.shared.presentError(error)
+				return
 			}
+			
+			let decoder = JSONDecoder()
+			guard var entries = try? decoder.decode([OPMLDirectoryEntry].self, from: data) else {
+				let error = NSLocalizedString("Unable to decode OPML Directory", comment: "Unable to decode OPML Directory")
+				NSApplication.shared.presentError(error)
+				return
+			}
+
+			entries.forEach { self?.directoryEntries[$0.url] = $0 }
+			
+			if let userURLs = AppDefaults.userSubscriptions {
+				for userURL in userURLs {
+					entries.append(OPMLDirectoryEntry(title: nil, url: userURL, description: nil, contactURL: nil, userDefined: nil))
+				}
+			}
+
+			self?.downloadSession.downloadObjects(Set(entries) as NSSet)
+
 		}
-		
-		downloadSession.downloadObjects(Set(opmlLocations) as NSSet)
 		
 	}
 	
@@ -104,33 +113,34 @@ extension OPMLLoader: DownloadSessionDelegate {
 	
 	func downloadSession(_ downloadSession: DownloadSession, requestForRepresentedObject representedObject: AnyObject) -> URLRequest? {
 		
-		guard let opmlLocation = representedObject as? OPMLLocation else {
+		guard let entry = representedObject as? OPMLDirectoryEntry else {
 			return nil
 		}
 		
-		guard let url = URL(string: opmlLocation.url) else {
+		guard let url = URL(string: entry.url) else {
 			return nil
 		}
 		
 		return URLRequest(url: url)
+		
 	}
 	
 	func downloadSession(_ downloadSession: DownloadSession, downloadDidCompleteForRepresentedObject representedObject: AnyObject, response: URLResponse?, data: Data, error: NSError?) {
 		
-		guard let opmlLocation = representedObject as? OPMLLocation, !data.isEmpty else {
+		guard let entry = representedObject as? OPMLDirectoryEntry else {
 			return
 		}
-		
+
 		if let error = error {
-			print("Error downloading \(opmlLocation.url) - \(error)")
+			print("Error downloading \(entry.url) - \(error)")
 			return
 		}
 		
-		let parserData = ParserData(url: opmlLocation.url, data: data)
+		let parserData = ParserData(url: entry.url, data: data)
 		if let opmlDocument = try? RSOPMLParser.parseOPML(with: parserData) {
 			
-			if opmlLocation.title != nil {
-				opmlDocument.title = opmlLocation.title
+			if entry.title != nil {
+				opmlDocument.title = entry.title
 			}
 			
 			var userInfo = [String: Any]()
