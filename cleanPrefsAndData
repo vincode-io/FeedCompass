@@ -1,6 +1,6 @@
 #!/bin/sh
 
-defaults delete com.ranchero.NetNewsWire-Evergreen
+defaults delete io.vincode.FeedCompass
 killall cfprefsd
 
 rm -rf ~/Library/Containers/io.vincode.FeedCompass
