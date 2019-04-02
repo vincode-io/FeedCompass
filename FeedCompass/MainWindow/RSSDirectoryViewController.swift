@@ -6,6 +6,7 @@ class RSSDirectoryViewController: NSViewController {
 	
 	@IBOutlet weak var titleLabel: NSTextField!
 	@IBOutlet weak var descriptionLabel: NSTextField!
+	@IBOutlet weak var contributePitchLabel: NSTextField!
 	@IBOutlet weak var contributeLabel: NSTextField!
 	@IBOutlet weak var contributeURLLabel: NSTextField!
 	
@@ -34,6 +35,7 @@ class RSSDirectoryViewController: NSViewController {
 			
 		} else {
 			
+			contributePitchLabel.isHidden = true
 			contributeLabel.isHidden = true
 			contributeURLLabel.isHidden = true
 			
