@@ -13,6 +13,18 @@ class SplitViewController: NSSplitViewController {
 		return self.splitViewItems[1].viewController as! RSSFeedViewController
 	}
 
+	func showRSSDirectory(_ directoryEntry: OPMLDirectoryEntry) {
+		
+		let dirController = storyboard!.instantiateController(ofType: RSSDirectoryViewController.self)
+		dirController.entry = directoryEntry
+		
+		let dirSplitViewItem = NSSplitViewItem(viewController: dirController)
+		splitViewItems[1] = dirSplitViewItem
+		
+		view.window?.recalculateKeyViewLoop()
+		
+	}
+	
 	func showRSSFeed(_ parsedFeed: ParsedFeed) {
 		
 		let feedController = storyboard!.instantiateController(ofType: RSSFeedViewController.self)

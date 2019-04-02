@@ -270,9 +270,17 @@ extension OPMLViewController: NSOutlineViewDelegate {
 			splitViewController.showRSSMessage(noneSelected)
 			return
 		}
+
+		// Did the select an OPML Document?
+		if let opmlDoc = opmlItems[0] as? RSOPMLDocument, let urlString = opmlDoc.url {
+			if let entry = OPMLLoader.shared.directoryEntries[urlString] {
+				splitViewController.showRSSDirectory(entry)
+				return
+			}
+		}
 		
 		// Did they select a single folder?
-		if opmlItems.count == 1 && opmlItems[0].children?.count ?? 0 > 0 {
+		if opmlItems[0].isFolder {
 			splitViewController.showRSSMessage("")
 			return
 		}
