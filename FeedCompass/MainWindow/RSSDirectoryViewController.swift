@@ -1,14 +1,14 @@
 //Copyright © 2019 Vincode, Inc. All rights reserved.
 
 import AppKit
+import RSWeb
 
 class RSSDirectoryViewController: NSViewController {
 	
 	@IBOutlet weak var titleLabel: NSTextField!
 	@IBOutlet weak var descriptionLabel: NSTextField!
 	@IBOutlet weak var contributePitchLabel: NSTextField!
-	@IBOutlet weak var contributeLabel: NSTextField!
-	@IBOutlet weak var contributeURLLabel: NSTextField!
+	@IBOutlet weak var contributeButton: NSButton!
 	
 	var entry: OPMLDirectoryEntry?
 
@@ -19,28 +19,22 @@ class RSSDirectoryViewController: NSViewController {
 		titleLabel.stringValue = entry?.title ?? ""
 		descriptionLabel.stringValue = entry?.description ?? ""
 
-		if let contributeURL = entry?.contributeURL {
-			
-			let attrString = NSMutableAttributedString(string: contributeURL)
-			let range = NSRange(location: 0, length: attrString.length)
-		
-			attrString.beginEditing()
-			attrString.addAttribute(.link, value: contributeURL, range: range)
-			attrString.addAttribute(.foregroundColor, value: NSColor.systemBlue, range: range)
-			attrString.endEditing()
-		
-			contributeURLLabel.allowsEditingTextAttributes = true
-			contributeURLLabel.isSelectable = true
-			contributeURLLabel.attributedStringValue = attrString
-			
-		} else {
-			
+		if entry?.contributeURL == nil {
+			contributeButton.isHidden = true
 			contributePitchLabel.isHidden = true
-			contributeLabel.isHidden = true
-			contributeURLLabel.isHidden = true
-			
 		}
 		
+	}
+	
+	@IBAction func contribute(_ sender: Any) {
+		if let urlString = entry?.contributeURL, let url = URL(string: urlString) {
+			MacWebBrowser.openURL(url, inBackground: false)
+		}
+	}
+	
+	@IBAction func learnMore(_ sender: Any) {
+		let url = URL(string: "https://vincode.io/contribute-to-feed-compass/")!
+		MacWebBrowser.openURL(url, inBackground: false)
 	}
 	
 }

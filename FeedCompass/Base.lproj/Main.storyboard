@@ -709,50 +709,64 @@ CA
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="19B-Vj-2h0">
-                                <rect key="frame" x="18" y="185" width="73" height="17"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Contribute:" id="qUP-bK-9uY">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="YKW-Uf-BrU">
-                                <rect key="frame" x="95" y="185" width="37" height="17"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="E58-o0-8yb">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="q6a-ta-xBN">
-                                <rect key="frame" x="18" y="210" width="364" height="51"/>
-                                <textFieldCell key="cell" selectable="YES" title="Do you know a good blog that should have been included in this list?  Consider contributing it by clicking the link below." id="I3t-TL-ITU">
+                                <rect key="frame" x="18" y="122" width="364" height="34"/>
+                                <textFieldCell key="cell" selectable="YES" title="Do you know a good blog that should have been included in this list?  Consider contributing it." id="I3t-TL-ITU">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UEG-Ew-DCD">
+                                <rect key="frame" x="163" y="95" width="75" height="19"/>
+                                <buttonCell key="cell" type="roundRect" title="Contribute" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="VU5-SN-dbX">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="cellTitle"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="contribute:" target="uzH-aC-YF5" id="eJ3-ID-aZc"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="min-0H-ZcY">
+                                <rect key="frame" x="161" y="19" width="78" height="19"/>
+                                <buttonCell key="cell" type="roundRect" title="Learn More" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Eie-29-WNR">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="cellTitle"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="learnMore:" target="uzH-aC-YF5" id="AeC-c9-CtG"/>
+                                </connections>
+                            </button>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="ZBn-gm-pBS">
+                                <rect key="frame" x="18" y="46" width="364" height="34"/>
+                                <textFieldCell key="cell" selectable="YES" title="Want to create a blog list of your own to include in Feed Compass?  You can!" id="PUN-dE-eSv">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="upj-Pa-Li4" secondAttribute="trailing" constant="10" id="11B-PH-5rn"/>
-                            <constraint firstItem="YKW-Uf-BrU" firstAttribute="centerY" secondItem="19B-Vj-2h0" secondAttribute="centerY" id="1CV-Lm-KgI"/>
                             <constraint firstItem="BZX-MT-qqR" firstAttribute="leading" secondItem="CAz-0o-G8x" secondAttribute="leading" constant="20" id="3bU-Lf-Ga3"/>
-                            <constraint firstItem="19B-Vj-2h0" firstAttribute="leading" secondItem="CAz-0o-G8x" secondAttribute="leading" constant="20" id="MpE-j2-1XE"/>
+                            <constraint firstAttribute="trailing" secondItem="ZBn-gm-pBS" secondAttribute="trailing" constant="20" id="5Aq-Ac-Fl9"/>
+                            <constraint firstItem="min-0H-ZcY" firstAttribute="top" secondItem="ZBn-gm-pBS" secondAttribute="bottom" constant="8" symbolic="YES" id="Gb7-YL-9Rj"/>
+                            <constraint firstItem="min-0H-ZcY" firstAttribute="centerX" secondItem="CAz-0o-G8x" secondAttribute="centerX" id="JRz-sO-aNG"/>
+                            <constraint firstItem="ZBn-gm-pBS" firstAttribute="leading" secondItem="CAz-0o-G8x" secondAttribute="leading" constant="20" id="JxT-Vo-UKb"/>
+                            <constraint firstItem="UEG-Ew-DCD" firstAttribute="top" secondItem="q6a-ta-xBN" secondAttribute="bottom" constant="8" id="VRG-KV-tfh"/>
+                            <constraint firstItem="UEG-Ew-DCD" firstAttribute="centerX" secondItem="CAz-0o-G8x" secondAttribute="centerX" id="WvH-E4-z5Z"/>
                             <constraint firstAttribute="trailing" secondItem="q6a-ta-xBN" secondAttribute="trailing" constant="20" id="aLJ-MT-PBP"/>
-                            <constraint firstItem="19B-Vj-2h0" firstAttribute="top" secondItem="q6a-ta-xBN" secondAttribute="bottom" constant="8" symbolic="YES" id="auz-Nd-25J"/>
-                            <constraint firstItem="YKW-Uf-BrU" firstAttribute="leading" secondItem="19B-Vj-2h0" secondAttribute="trailing" constant="8" symbolic="YES" id="cmr-E3-AVl"/>
                             <constraint firstItem="BZX-MT-qqR" firstAttribute="top" secondItem="CAz-0o-G8x" secondAttribute="top" constant="20" id="dP7-R7-RwO"/>
                             <constraint firstItem="upj-Pa-Li4" firstAttribute="leading" secondItem="CAz-0o-G8x" secondAttribute="leading" constant="20" id="hv8-oQ-KPt"/>
                             <constraint firstItem="q6a-ta-xBN" firstAttribute="leading" secondItem="CAz-0o-G8x" secondAttribute="leading" constant="20" id="iMo-CY-2sU"/>
-                            <constraint firstItem="q6a-ta-xBN" firstAttribute="top" secondItem="upj-Pa-Li4" secondAttribute="bottom" constant="32" id="itx-6K-pkz"/>
+                            <constraint firstAttribute="bottom" secondItem="min-0H-ZcY" secondAttribute="bottom" constant="20" symbolic="YES" id="pG4-tq-5gn"/>
                             <constraint firstItem="upj-Pa-Li4" firstAttribute="top" secondItem="BZX-MT-qqR" secondAttribute="bottom" constant="8" id="rss-2M-UVT"/>
+                            <constraint firstItem="ZBn-gm-pBS" firstAttribute="top" secondItem="UEG-Ew-DCD" secondAttribute="bottom" constant="16" id="vyQ-tZ-lVh"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="contributeLabel" destination="19B-Vj-2h0" id="zAw-MI-Dhr"/>
+                        <outlet property="contributeButton" destination="UEG-Ew-DCD" id="ggw-rr-JVE"/>
                         <outlet property="contributePitchLabel" destination="q6a-ta-xBN" id="twD-eQ-NdP"/>
-                        <outlet property="contributeURLLabel" destination="YKW-Uf-BrU" id="haf-su-nlA"/>
                         <outlet property="descriptionLabel" destination="upj-Pa-Li4" id="xvF-l8-Wwn"/>
                         <outlet property="titleLabel" destination="BZX-MT-qqR" id="bCr-P0-s5k"/>
                     </connections>
