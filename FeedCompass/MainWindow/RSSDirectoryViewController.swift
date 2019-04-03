@@ -33,7 +33,7 @@ class RSSDirectoryViewController: NSViewController {
 	}
 	
 	@IBAction func learnMore(_ sender: Any) {
-		let url = URL(string: "https://vincode.io/contribute-to-feed-compass/")!
+		let url = URL(string: "https://vincode.io/feed-curator/")!
 		MacWebBrowser.openURL(url, inBackground: false)
 	}
 	
