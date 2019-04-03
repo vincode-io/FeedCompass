@@ -357,7 +357,26 @@ CA
                                     <items>
                                         <menuItem title="FeedDirectory Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                             <connections>
-                                                <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
+                                                <action selector="showHelp:" target="Voe-Tx-rLC" id="WcE-cM-TZD"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="CAZ-sr-XqP"/>
+                                        <menuItem title="Website" id="9he-5R-Kce">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="showWebsite:" target="Voe-Tx-rLC" id="BdX-Hk-umy"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Github Repository" id="ZdB-Gj-YwN">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="showGithubRepo:" target="Voe-Tx-rLC" id="ktN-L1-s4j"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Github Issues" id="bd5-9r-aWR">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="showGithubIssues:" target="Voe-Tx-rLC" id="rJR-l1-3Ix"/>
                                             </connections>
                                         </menuItem>
                                     </items>
@@ -739,7 +758,7 @@ CA
                             </button>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="ZBn-gm-pBS">
                                 <rect key="frame" x="18" y="46" width="364" height="34"/>
-                                <textFieldCell key="cell" selectable="YES" title="Want to create a blog list of your own to include in Feed Compass?  You can!" id="PUN-dE-eSv">
+                                <textFieldCell key="cell" selectable="YES" title="Want to create a blog list of your own to include in Feed Compass?  Its easy with Feed Curator." id="PUN-dE-eSv">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="labelColor" catalog="System" colorSpace="catalog"/>

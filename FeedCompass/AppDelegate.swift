@@ -1,6 +1,7 @@
 //Copyright © 2019 Vincode, Inc. All rights reserved.
 
 import AppKit
+import RSWeb
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -43,4 +44,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 		preferencesWindowController!.showWindow(self)
 	}
 	
+	@IBAction func showHelp(_ sender: Any?) {
+		MacWebBrowser.openURL(URL(string: "https://vincode.io/feed-compass-help/")!, inBackground: false)
+	}
+	
+	@IBAction func showWebsite(_ sender: Any?) {
+		MacWebBrowser.openURL(URL(string: "https://vincode.io/feed-compass/")!, inBackground: false)
+	}
+	
+	@IBAction func showGithubRepo(_ sender: Any?) {
+		MacWebBrowser.openURL(URL(string: "https://github.com/vincode-io/FeedCompass")!, inBackground: false)
+	}
+	
+	@IBAction func showGithubIssues(_ sender: Any?) {
+		MacWebBrowser.openURL(URL(string: "https://github.com/vincode-io/FeedCompass/issues")!, inBackground: false)
+	}
+
 }
