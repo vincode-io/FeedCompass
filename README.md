@@ -12,7 +12,7 @@ looking for a good, free RSS Reader we recommend
 
 ## Download
 
-[![App Store](images/app-store-badge.png)](https://itunes.apple.com/us/app/feed-compass/id1458648487?ls=1&mt=12)
+[![App Store](images/app-store-badge.png)](https://itunes.apple.com/us/app/feed-compass/id1458648487)
 
 ## Features
 
