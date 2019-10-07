@@ -11,8 +11,4 @@ jobs:
     - uses: actions/checkout@v1
       
     - name: Build App
-      run: |
-        xcodebuild -scheme 'Feed Compass' \ 
-        -configuration Debug \
-        -allowProvisioningUpdates \
-        -showBuildTimingSummary
+      run: xcodebuild -scheme 'Feed Compass' -configuration Debug -allowProvisioningUpdates -showBuildTimingSummary
