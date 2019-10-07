@@ -1,0 +1,14 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: macOS-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+      
+    - name: Build App
+      run: xcodebuild -scheme 'Feed Compass' -configuration Debug -showBuildTimingSummary
