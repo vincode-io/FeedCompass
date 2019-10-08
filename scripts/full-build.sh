@@ -10,6 +10,7 @@ security import ./scripts/certs/apple.cer -k ~/Library/Keychains/github-build.ke
 security import ./scripts/certs/dev.cer -k ~/Library/Keychains/github-build.keychain -A
 security import ./scripts/certs/dev.p12 -k ~/Library/Keychains/github-build.keychain -P $KEY_SECRET -A
 security default-keychain -s github-build.keychain
+security unlock-keychain -p github-actions github-build.keychain
 
 rm -f ./scripts/certs/dev.cer
 rm -f ./scripts/certs/dev.p12
