@@ -10,8 +10,14 @@ jobs:
     steps:
     - uses: actions/checkout@v1
       
-    - name: Decrypt
-      run: which openssl
-      
+    - name: Switch to Xcode 11
+      run: sudo xcode-select -s /Applications/Xcode_11.app
+    
+    - name: Create Keychain
+      run: scripts/create-keychain.sh
+
     - name: Build App
       run: xcodebuild -scheme 'Feed Compass' -configuration Debug -allowProvisioningUpdates -showBuildTimingSummary
+
+    - name: Delete Keychain
+      run: scripts/remove-keychain.sh
