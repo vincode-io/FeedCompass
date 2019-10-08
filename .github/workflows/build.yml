@@ -10,5 +10,8 @@ jobs:
     steps:
     - uses: actions/checkout@v1
       
+    - name: Decrypt
+      run: which openssl
+      
     - name: Build App
       run: xcodebuild -scheme 'Feed Compass' -configuration Debug -allowProvisioningUpdates -showBuildTimingSummary
