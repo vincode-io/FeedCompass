@@ -5,7 +5,7 @@ openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in scripts/certs/dist.p12.enc -d -a
 security create-keychain -p github-actions ios-build.keychain
 security import ./scripts/certs/apple.cer -k ~/Library/Keychains/ios-build.keychain -A
 security import ./scripts/certs/dist.cer -k ~/Library/Keychains/ios-build.keychain -A
-security import ./scripts/certs/dist.p12 -k ~/Library/Keychains/ios-build.keychain -P $KEY_PASSWORD -A
+security import ./scripts/certs/dist.p12 -k ~/Library/Keychains/ios-build.keychain -P $KEY_SECRET -A
 security set-key-partition-list -S apple-tool:,apple: -s -k github-actions ios-build.keychain
 rm -f ./scripts/certs/dist.cer
 rm -f ./scripts/certs/dist.p12
