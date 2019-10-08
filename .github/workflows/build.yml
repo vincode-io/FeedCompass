@@ -9,7 +9,9 @@ jobs:
     
     steps:
     - uses: actions/checkout@v1
-    - uses: actions/checkout-submodules@v2
+    
+    - name: Checkout submodules
+      uses: textbook/git-checkout-submodule-action@2.0.0
       
     - name: Switch to Xcode 11
       run: sudo xcode-select -s /Applications/Xcode_11.app
