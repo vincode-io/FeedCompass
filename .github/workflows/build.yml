@@ -20,4 +20,4 @@ jobs:
       env:
           ENCRYPTION_SECRET: ${{ secrets.ENCRYPTION_SECRET }}
           KEY_SECRET: ${{ secrets.KEY_SECRET }}
-      run: scripts/full-build.sh
+      run: buildscripts/ci-build.sh
