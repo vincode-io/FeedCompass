@@ -13,14 +13,8 @@ jobs:
     - name: Switch to Xcode 11
       run: sudo xcode-select -s /Applications/Xcode_11.app
     
-    - name: Create Keychain
+    - name: Run Build
       env:
           ENCRYPTION_SECRET: ${{ secrets.ENCRYPTION_SECRET }}
           KEY_SECRET: ${{ secrets.KEY_SECRET }}
-      run: scripts/create-keychain.sh
-
-    - name: Build App
-      run: xcodebuild -scheme 'Feed Compass' -configuration Release -allowProvisioningUpdates -showBuildTimingSummary
-
-    - name: Delete Keychain
-      run: scripts/remove-keychain.sh
+      run: scripts/full-build.sh
