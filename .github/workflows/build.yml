@@ -20,7 +20,7 @@ jobs:
       run: scripts/create-keychain.sh
 
     - name: Build App
-      run: xcodebuild -scheme 'Feed Compass' -configuration Debug -allowProvisioningUpdates -showBuildTimingSummary
+      run: xcodebuild -scheme 'Feed Compass' -configuration Release -allowProvisioningUpdates -showBuildTimingSummary
 
     - name: Delete Keychain
       run: scripts/remove-keychain.sh
