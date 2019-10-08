@@ -12,9 +12,6 @@ security import ./scripts/certs/dev.p12 -k ~/Library/Keychains/github-build.keyc
 security set-key-partition-list -S apple-tool:,apple: -s -k github-actions github-build.keychain
 security default-keychain -s github-build.keychain
 
-#security set-keychain-settings -t 3600 -l github-build.keychain
-#security unlock-keychain -p github-actions github-build.keychain
-
 rm -f ./scripts/certs/dev.cer
 rm -f ./scripts/certs/dev.p12
 
