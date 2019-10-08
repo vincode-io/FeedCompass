@@ -15,6 +15,7 @@ rm -f ./scripts/certs/dev.cer
 rm -f ./scripts/certs/dev.p12
 rm -f ./scripts/certs/mac-dev.p12
 
+security default-keychain -s ios-build.keychain
 security set-key-partition-list -S apple-tool:,apple: -s -k github-actions ios-build.keychain
 
 xcodebuild -scheme 'Feed Compass' -configuration Release -allowProvisioningUpdates -showBuildTimingSummary
