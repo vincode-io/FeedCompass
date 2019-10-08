@@ -10,9 +10,8 @@ jobs:
     steps:
     - name: Checkout Project
       uses: actions/checkout@v1
-    
-    - name: Checkout Submodules
-      run: scripts/git-submodules.sh
+      with: 
+        submodules: recursive
 
     - name: Switch to Xcode 11
       run: sudo xcode-select -s /Applications/Xcode_11.app
