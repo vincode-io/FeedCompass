@@ -8,7 +8,8 @@ jobs:
     runs-on: macOS-latest
     
     steps:
-    - uses: actions/checkout@v1
+    - name: Checkout Project
+      uses: actions/checkout@v1
     
     - name: Checkout submodules
       uses: textbook/git-checkout-submodule-action@2.0.0
