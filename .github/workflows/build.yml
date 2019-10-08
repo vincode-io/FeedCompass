@@ -11,9 +11,10 @@ jobs:
     - name: Checkout Project
       uses: actions/checkout@v1
     
-    - name: Checkout submodules
-      uses: textbook/git-checkout-submodule-action@2.0.0
-      
+    - name: Checkout Submodules
+      uses: srt32/git-actions@v0.0.3
+      args: git submodule update --init --recursive
+
     - name: Switch to Xcode 11
       run: sudo xcode-select -s /Applications/Xcode_11.app
     
