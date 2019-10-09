@@ -15,6 +15,6 @@ security default-keychain -s github-build.keychain
 rm -f ./buildscripts/certs/dev.cer
 rm -f ./buildscripts/certs/dev.p12
 
-xcodebuild -scheme 'Feed Compass' -configuration Release -allowProvisioningUpdates -allowProvisioningDeviceRegistration -showBuildTimingSummary
+xcodebuild -scheme 'Feed Compass' -configuration Release -allowProvisioningUpdates -showBuildTimingSummary
 
 security delete-keychain github-build.keychain
