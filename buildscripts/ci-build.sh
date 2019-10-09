@@ -25,7 +25,7 @@ rm -f buildscripts/certs/dev.cer
 rm -f buildscripts/certs/dev.p12
 
 # Do the build
-xcodebuild -scheme 'Feed Compass' -configuration Release -allowProvisioningUpdates -showBuildTimingSummary
+xcodebuild -scheme 'Feed Compass' -configuration Release -showBuildTimingSummary
 
 # Delete the keychain and the provisioningi profile
 security delete-keychain github-build.keychain
