@@ -3,7 +3,7 @@ set -v
 set -e
 
 # Unencrypt our provisioning profile, certificate, and private key
-openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in buildscripts/profile/FeedCompass.provisionprofile.enc -d -a -out buildscripts/profile/FeedCompass.provisionprofile
+openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in buildscripts/profile/FeedCompassPercheron.provisionprofile.enc -d -a -out buildscripts/profile/FeedCompassPercheron.provisionprofile
 openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in buildscripts/certs/dev.cer.enc -d -a -out buildscripts/certs/dev.cer
 openssl aes-256-cbc -k "$ENCRYPTION_SECRET" -in buildscripts/certs/dev.p12.enc -d -a -out buildscripts/certs/dev.p12
 
@@ -17,16 +17,16 @@ security default-keychain -s github-build.keychain
 
 # Copy the provisioning profile
 mkdir -p ~/Library/MobileDevice/Provisioning\ Profiles
-cp buildscripts/profile/FeedCompass.provisionprofile ~/Library/MobileDevice/Provisioning\ Profiles/
+cp buildscripts/profile/FeedCompassPercheron.provisionprofile ~/Library/MobileDevice/Provisioning\ Profiles/
 
 # Delete the decrypted files
-rm -f buildscripts/profile/FeedCompass.provisionprofile
+rm -f buildscripts/profile/FeedCompassPercheron.provisionprofile
 rm -f buildscripts/certs/dev.cer
 rm -f buildscripts/certs/dev.p12
 
 # Do the build
-xcodebuild -scheme 'Feed Compass' -configuration Release -allowProvisioningUpdates -showBuildTimingSummary CODE_SIGN_STYLE=Manual PROVISIONING_PROFILE_SPECIFIER=FeedCompass
+xcodebuild -scheme 'Feed Compass' -configuration Release -allowProvisioningUpdates -showBuildTimingSummary CODE_SIGN_STYLE=Manual PROVISIONING_PROFILE_SPECIFIER=FeedCompass-Percheron
 
 # Delete the keychain and the provisioningi profile
 security delete-keychain github-build.keychain
-rm -f ~/Library/MobileDevice/Provisioning\ Profiles/FeedCompass.provisionprofile
+rm -f ~/Library/MobileDevice/Provisioning\ Profiles/FeedCompassPercheron.provisionprofile
