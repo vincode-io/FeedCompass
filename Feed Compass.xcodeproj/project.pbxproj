@@ -162,6 +162,11 @@
 		518C649F223C06DE00B18604 /* SubscribeToOPML.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscribeToOPML.swift; sourceTree = "<group>"; };
 		518C64A0223C06DE00B18604 /* SubscribeToOPML.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SubscribeToOPML.xib; sourceTree = "<group>"; };
 		518C64A5223D63D300B18604 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		51C8F2EE234E49CE0048ED95 /* FeedCompass_project_debug.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = FeedCompass_project_debug.xcconfig; sourceTree = "<group>"; };
+		51C8F2EF234E49CE0048ED95 /* FeedCompass_project_release.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = FeedCompass_project_release.xcconfig; sourceTree = "<group>"; };
+		51C8F2F0234E49CE0048ED95 /* FeedCompass_project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = FeedCompass_project.xcconfig; sourceTree = "<group>"; };
+		51C8F2F1234E49CE0048ED95 /* FeedCompass_macapp_target.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = FeedCompass_macapp_target.xcconfig; sourceTree = "<group>"; };
+		51C8F2F7234E4ABC0048ED95 /* FeedCompass_mac_target_common.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = FeedCompass_mac_target_common.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -220,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				5160377E2235581600172C8D /* FeedCompass */,
+				51C8F2E8234E499C0048ED95 /* xcconfig */,
 				5160377D2235581600172C8D /* Products */,
 				5160378F22355A5600172C8D /* RSCore.xcodeproj */,
 				5160379B22355A5E00172C8D /* RSParser.xcodeproj */,
@@ -279,6 +285,26 @@
 				516037AF22355A6900172C8D /* RSWeb.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		51C8F2E8234E499C0048ED95 /* xcconfig */ = {
+			isa = PBXGroup;
+			children = (
+				51C8F2F1234E49CE0048ED95 /* FeedCompass_macapp_target.xcconfig */,
+				51C8F2EE234E49CE0048ED95 /* FeedCompass_project_debug.xcconfig */,
+				51C8F2EF234E49CE0048ED95 /* FeedCompass_project_release.xcconfig */,
+				51C8F2F0234E49CE0048ED95 /* FeedCompass_project.xcconfig */,
+				51C8F2F6234E4ABC0048ED95 /* common */,
+			);
+			path = xcconfig;
+			sourceTree = "<group>";
+		};
+		51C8F2F6234E4ABC0048ED95 /* common */ = {
+			isa = PBXGroup;
+			children = (
+				51C8F2F7234E4ABC0048ED95 /* FeedCompass_mac_target_common.xcconfig */,
+			);
+			path = common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
