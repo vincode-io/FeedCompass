@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14490.70"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -479,14 +479,13 @@ CA
                                     <subviews>
                                         <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" indentationPerLevel="16" outlineTableColumn="huS-4K-5Gs" id="mIq-NB-Snb" customClass="OPMLOutlineView" customModule="Feed_Compass" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="248" height="598"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
                                                 <tableColumn width="245" minWidth="40" maxWidth="1000" id="huS-4K-5Gs">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -588,7 +587,7 @@ CA
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="70" rowSizeStyle="automatic" usesAutomaticRowHeights="YES" viewBased="YES" id="P5Q-7i-15j">
                                             <rect key="frame" x="0.0" y="0.0" width="353" height="298"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             <tableViewGridLines key="gridStyleMask" horizontal="YES"/>
@@ -596,7 +595,6 @@ CA
                                             <tableColumns>
                                                 <tableColumn width="350" minWidth="40" maxWidth="1000" id="FLq-lh-zMC">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
-                                                        <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                     </tableHeaderCell>
@@ -607,12 +605,12 @@ CA
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
                                                     <prototypeCellViews>
-                                                        <customView identifier="RSSTableViewCell" id="q59-9l-O3Y" customClass="RSSTableCellView" customModule="Feed_Compass" customModuleProvider="target">
+                                                        <customView identifier="RSSTableViewCell" misplaced="YES" id="q59-9l-O3Y" customClass="RSSTableCellView" customModule="Feed_Compass" customModuleProvider="target">
                                                             <rect key="frame" x="1" y="1" width="350" height="70"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="MgL-vF-TBg">
-                                                                    <rect key="frame" x="18" y="48" width="314" height="18"/>
+                                                                    <rect key="frame" x="18" y="46" width="314" height="17"/>
                                                                     <textFieldCell key="cell" title="Multiline Label" id="Z8v-SL-jfR">
                                                                         <font key="font" metaFont="systemSemibold" size="14"/>
                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -620,7 +618,7 @@ CA
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mGq-l1-pw6">
-                                                                    <rect key="frame" x="18" y="26" width="314" height="18"/>
+                                                                    <rect key="frame" x="18" y="25" width="314" height="17"/>
                                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="eVi-sv-rOD">
                                                                         <font key="font" metaFont="systemBold" size="14"/>
                                                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -628,9 +626,9 @@ CA
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="g3N-cX-VEQ">
-                                                                    <rect key="frame" x="18" y="4" width="314" height="18"/>
+                                                                    <rect key="frame" x="18" y="4" width="314" height="17"/>
                                                                     <textFieldCell key="cell" title="Multiline Label" id="9AJ-ah-f18">
-                                                                        <font key="font" metaFont="system" size="14"/>
+                                                                        <font key="font" metaFont="menu" size="14"/>
                                                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
@@ -713,7 +711,7 @@ CA
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BZX-MT-qqR">
-                                <rect key="frame" x="18" y="318" width="45" height="27"/>
+                                <rect key="frame" x="18" y="319" width="46" height="26"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Title" id="cnk-aQ-azC">
                                     <font key="font" metaFont="system" size="22"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -721,7 +719,7 @@ CA
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="upj-Pa-Li4">
-                                <rect key="frame" x="18" y="293" width="374" height="17"/>
+                                <rect key="frame" x="18" y="295" width="374" height="16"/>
                                 <textFieldCell key="cell" selectable="YES" title="Multiline Label" id="dFG-Xq-Mgm">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -729,7 +727,7 @@ CA
                                 </textFieldCell>
                             </textField>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="q6a-ta-xBN">
-                                <rect key="frame" x="18" y="122" width="364" height="34"/>
+                                <rect key="frame" x="18" y="46" width="364" height="32"/>
                                 <textFieldCell key="cell" selectable="YES" title="Do you know a good blog that should have been included in this list?  Consider contributing it." id="I3t-TL-ITU">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -737,50 +735,27 @@ CA
                                 </textFieldCell>
                             </textField>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UEG-Ew-DCD">
-                                <rect key="frame" x="163" y="95" width="75" height="19"/>
+                                <rect key="frame" x="163" y="19" width="75" height="19"/>
                                 <buttonCell key="cell" type="roundRect" title="Contribute" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="VU5-SN-dbX">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="cellTitle"/>
+                                    <font key="font" metaFont="label" size="12"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="contribute:" target="uzH-aC-YF5" id="eJ3-ID-aZc"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="min-0H-ZcY">
-                                <rect key="frame" x="161" y="19" width="78" height="19"/>
-                                <buttonCell key="cell" type="roundRect" title="Learn More" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Eie-29-WNR">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="cellTitle"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="learnMore:" target="uzH-aC-YF5" id="AeC-c9-CtG"/>
-                                </connections>
-                            </button>
-                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="ZBn-gm-pBS">
-                                <rect key="frame" x="18" y="46" width="364" height="34"/>
-                                <textFieldCell key="cell" selectable="YES" title="Want to create a blog list of your own to include in Feed Compass?  Its easy with Feed Curator." id="PUN-dE-eSv">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
                         </subviews>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="upj-Pa-Li4" secondAttribute="trailing" constant="10" id="11B-PH-5rn"/>
                             <constraint firstItem="BZX-MT-qqR" firstAttribute="leading" secondItem="CAz-0o-G8x" secondAttribute="leading" constant="20" id="3bU-Lf-Ga3"/>
-                            <constraint firstAttribute="trailing" secondItem="ZBn-gm-pBS" secondAttribute="trailing" constant="20" id="5Aq-Ac-Fl9"/>
-                            <constraint firstItem="min-0H-ZcY" firstAttribute="top" secondItem="ZBn-gm-pBS" secondAttribute="bottom" constant="8" symbolic="YES" id="Gb7-YL-9Rj"/>
-                            <constraint firstItem="min-0H-ZcY" firstAttribute="centerX" secondItem="CAz-0o-G8x" secondAttribute="centerX" id="JRz-sO-aNG"/>
-                            <constraint firstItem="ZBn-gm-pBS" firstAttribute="leading" secondItem="CAz-0o-G8x" secondAttribute="leading" constant="20" id="JxT-Vo-UKb"/>
                             <constraint firstItem="UEG-Ew-DCD" firstAttribute="top" secondItem="q6a-ta-xBN" secondAttribute="bottom" constant="8" id="VRG-KV-tfh"/>
                             <constraint firstItem="UEG-Ew-DCD" firstAttribute="centerX" secondItem="CAz-0o-G8x" secondAttribute="centerX" id="WvH-E4-z5Z"/>
                             <constraint firstAttribute="trailing" secondItem="q6a-ta-xBN" secondAttribute="trailing" constant="20" id="aLJ-MT-PBP"/>
                             <constraint firstItem="BZX-MT-qqR" firstAttribute="top" secondItem="CAz-0o-G8x" secondAttribute="top" constant="20" id="dP7-R7-RwO"/>
                             <constraint firstItem="upj-Pa-Li4" firstAttribute="leading" secondItem="CAz-0o-G8x" secondAttribute="leading" constant="20" id="hv8-oQ-KPt"/>
                             <constraint firstItem="q6a-ta-xBN" firstAttribute="leading" secondItem="CAz-0o-G8x" secondAttribute="leading" constant="20" id="iMo-CY-2sU"/>
-                            <constraint firstAttribute="bottom" secondItem="min-0H-ZcY" secondAttribute="bottom" constant="20" symbolic="YES" id="pG4-tq-5gn"/>
+                            <constraint firstAttribute="bottom" secondItem="UEG-Ew-DCD" secondAttribute="bottom" constant="20" symbolic="YES" id="pph-xv-LoZ"/>
                             <constraint firstItem="upj-Pa-Li4" firstAttribute="top" secondItem="BZX-MT-qqR" secondAttribute="bottom" constant="8" id="rss-2M-UVT"/>
-                            <constraint firstItem="ZBn-gm-pBS" firstAttribute="top" secondItem="UEG-Ew-DCD" secondAttribute="bottom" constant="16" id="vyQ-tZ-lVh"/>
                         </constraints>
                     </view>
                     <connections>
@@ -803,7 +778,7 @@ CA
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="b4T-vZ-xuP">
-                                <rect key="frame" x="146" y="142" width="59" height="17"/>
+                                <rect key="frame" x="146" y="142" width="59" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Message" id="Hom-QM-Rw4">
                                     <font key="font" usesAppearanceFont="YES"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
