@@ -355,7 +355,7 @@ CA
                                 <modifierMask key="keyEquivalentModifierMask"/>
                                 <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
                                     <items>
-                                        <menuItem title="FeedDirectory Help" keyEquivalent="?" id="FKE-Sm-Kum">
+                                        <menuItem title="Feed Compass Help" keyEquivalent="?" id="FKE-Sm-Kum">
                                             <connections>
                                                 <action selector="showHelp:" target="Voe-Tx-rLC" id="WcE-cM-TZD"/>
                                             </connections>
