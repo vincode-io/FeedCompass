@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16096"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="21507"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -405,11 +405,11 @@ CA
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <toolbar key="toolbar" implicitIdentifier="1CF56AB6-FEB8-46CA-96BF-68086A72354C" autosavesConfiguration="NO" showsBaselineSeparator="NO" displayMode="iconOnly" sizeMode="regular" id="pdq-l1-EOg">
                             <allowedToolbarItems>
-                                <toolbarItem implicitItemIdentifier="6AC2EABA-5B37-4992-813A-4F632554F21B" label="Subscribe" paletteLabel="Subscribe" sizingBehavior="auto" id="kJa-eu-DJ7" customClass="RSToolbarItem" customModule="RSCore">
+                                <toolbarItem implicitItemIdentifier="6AC2EABA-5B37-4992-813A-4F632554F21B" label="Subscribe" paletteLabel="Subscribe" title="Subscribe" sizingBehavior="auto" id="kJa-eu-DJ7" customClass="RSToolbarItem" customModule="RSCore">
                                     <nil key="toolTip"/>
                                     <button key="view" verticalHuggingPriority="750" id="IqP-0X-hT0">
-                                        <rect key="frame" x="0.0" y="14" width="127" height="25"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <rect key="frame" x="0.0" y="14" width="77" height="23"/>
+                                        <autoresizingMask key="autoresizingMask"/>
                                         <buttonCell key="cell" type="roundTextured" title="Subscribe" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="b7P-AU-hup">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
@@ -484,7 +484,7 @@ CA
                                             <color key="backgroundColor" red="0.11764705882352941" green="0.11764705882352941" blue="0.11764705882352941" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn width="245" minWidth="40" maxWidth="1000" id="huS-4K-5Gs">
+                                                <tableColumn width="236" minWidth="40" maxWidth="1000" id="huS-4K-5Gs">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
@@ -586,7 +586,7 @@ CA
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="70" rowSizeStyle="automatic" usesAutomaticRowHeights="YES" viewBased="YES" id="P5Q-7i-15j">
-                                            <rect key="frame" x="0.0" y="0.0" width="353" height="298"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="362" height="298"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -606,11 +606,11 @@ CA
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES"/>
                                                     <prototypeCellViews>
                                                         <customView identifier="RSSTableViewCell" misplaced="YES" id="q59-9l-O3Y" customClass="RSSTableCellView" customModule="Feed_Compass" customModuleProvider="target">
-                                                            <rect key="frame" x="1" y="1" width="350" height="70"/>
+                                                            <rect key="frame" x="1" y="1" width="359" height="70"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="MgL-vF-TBg">
-                                                                    <rect key="frame" x="18" y="46" width="314" height="17"/>
+                                                                    <rect key="frame" x="18" y="46" width="323" height="17"/>
                                                                     <textFieldCell key="cell" title="Multiline Label" id="Z8v-SL-jfR">
                                                                         <font key="font" metaFont="systemSemibold" size="14"/>
                                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -618,7 +618,7 @@ CA
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mGq-l1-pw6">
-                                                                    <rect key="frame" x="18" y="25" width="314" height="17"/>
+                                                                    <rect key="frame" x="18" y="25" width="323" height="17"/>
                                                                     <textFieldCell key="cell" lineBreakMode="clipping" title="Label" id="eVi-sv-rOD">
                                                                         <font key="font" metaFont="systemBold" size="14"/>
                                                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -626,7 +626,7 @@ CA
                                                                     </textFieldCell>
                                                                 </textField>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="g3N-cX-VEQ">
-                                                                    <rect key="frame" x="18" y="4" width="314" height="17"/>
+                                                                    <rect key="frame" x="18" y="4" width="323" height="17"/>
                                                                     <textFieldCell key="cell" title="Multiline Label" id="9AJ-ah-f18">
                                                                         <font key="font" metaFont="menu" size="14"/>
                                                                         <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -711,7 +711,7 @@ CA
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BZX-MT-qqR">
-                                <rect key="frame" x="18" y="319" width="46" height="26"/>
+                                <rect key="frame" x="18" y="319" width="45" height="26"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Title" id="cnk-aQ-azC">
                                     <font key="font" metaFont="system" size="22"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -738,7 +738,7 @@ CA
                                 <rect key="frame" x="163" y="19" width="75" height="19"/>
                                 <buttonCell key="cell" type="roundRect" title="Contribute" bezelStyle="roundedRect" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="VU5-SN-dbX">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="label" size="12"/>
+                                    <font key="font" metaFont="cellTitle"/>
                                 </buttonCell>
                                 <connections>
                                     <action selector="contribute:" target="uzH-aC-YF5" id="eJ3-ID-aZc"/>
@@ -801,6 +801,6 @@ CA
         </scene>
     </scenes>
     <resources>
-        <image name="NSActionTemplate" width="14" height="14"/>
+        <image name="NSActionTemplate" width="20" height="20"/>
     </resources>
 </document>

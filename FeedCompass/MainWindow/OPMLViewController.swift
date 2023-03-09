@@ -15,15 +15,6 @@ class OPMLViewController: NSViewController, NSUserInterfaceValidations {
 	
 	private var opmls = [RSOPMLDocument]()
 	
-	private let folderImage: NSImage? = {
-		return NSImage(named: "NSFolder")
-	}()
-	
-	private let faviconImage: NSImage? = {
-		let path = "/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/BookmarkIcon.icns"
-		return NSImage(contentsOfFile: path)
-	}()
-	
 	var currentlySelectedOPMLItem: RSOPMLItem? {
 		let selectedItems = currentlySelectedOPMLItems
 		if selectedItems.count == 1 {
@@ -209,16 +200,17 @@ extension OPMLViewController: NSOutlineViewDelegate {
 		
 		if let cell = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "OPMLTableViewCell"), owner: nil) as? NSTableCellView {
 			if let opmlDoc = item as? RSOPMLDocument {
-				cell.imageView?.image = folderImage
+				cell.imageView?.image = NSImage(systemSymbolName: "folder", accessibilityDescription: nil)
 				cell.textField?.stringValue = titleOrUntitled(opmlDoc.title)
 			} else if let opmlItem = item as? RSOPMLItem {
 				if opmlItem.children?.count ?? 0 > 0 {
-					cell.imageView?.image = folderImage
+					cell.imageView?.image = NSImage(systemSymbolName: "folder", accessibilityDescription: nil)
 				} else {
-					cell.imageView?.image = faviconImage
+					cell.imageView?.image = NSImage(systemSymbolName: "globe", accessibilityDescription: nil)?.withSymbolConfiguration(.init(pointSize: 14, weight: .light))
 				}
  				cell.textField?.stringValue = titleOrUntitled(opmlItem.titleFromAttributes)
 			}
+			cell.imageView?.contentTintColor = NSColor.controlAccentColor
 			return cell
 		}
 		
